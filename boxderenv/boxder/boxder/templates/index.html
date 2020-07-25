@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    BOXDER
+{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <main>
+
+        <div class="principal-text">
+            <h2>WELCOME TO BOXDER</h2>
+            <h6>YOUR BEST ASSETS ADMINISTRATOR</h6>
+        </div>
+
+        <div class="principal-buttons">
+            <button type="button" class="singin"><a href="#">Sing In</a></button>
+            <button type="button" class="login"><a href="#">Log In</a></button>
+        </div>
+
+</main>
+{% endblock %}

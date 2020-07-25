@@ -1,0 +1,52 @@
+body{
+    background-image: url("../lib/img/boxderindex.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+main{
+    margin-top:250px;
+    margin-left:135px;
+}
+.principal-text h2{
+    font-size:55px;
+    letter-spacing: 2px;
+    color:white;
+}
+.principal-text h6{
+    letter-spacing: 5px;
+    color:white;
+}
+.principal-buttons{
+    margin-top:40px;
+}
+.singin, .login{
+    background-color: white;
+    border:none;
+    padding:15px 40px;
+    margin:20px;
+    border-radius:7px;
+}
+.singin a, .login a{
+    color:#333333;
+    text-decoration: none;
+    font-weight: bold;
+}
+.singin:hover{
+    background-color: lightgray;
+}
+.login:hover{
+    background-color: lightgray;
+}
+.principal-text h2{ /* asignación de la animación */
+    animation-name: texto;
+    animation-duration: 5s;
+}
+@keyframes texto{ /*animación*/
+    0%{
+        opacity: 0;
+    }
+    100%{
+        /*transform: scale(1);*/
+        opacity: 1;
+    }
+}
