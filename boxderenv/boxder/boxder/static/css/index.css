@@ -37,7 +37,7 @@ main{
 .login:hover{
     background-color: lightgray;
 }
-.principal-text h2{ /* asignación de la animación */
+main .principal-text h2.active{ /* asignación de la animación */
     animation-name: texto;
     animation-duration: 5s;
 }
