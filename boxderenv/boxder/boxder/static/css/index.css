@@ -1,11 +1,19 @@
-body{
+*{
+    padding:0;
+    margin:0;
+}
+main{
     background-image: url("../lib/img/boxderindex.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 main{
-    margin-top:250px;
-    margin-left:135px;
+    padding:50px;
+    height:650px;
+}
+.principal-text{
+    margin-top:200px;
+    margin-left:40px;
 }
 .principal-text h2{
     font-size:55px;
@@ -31,22 +39,64 @@ main{
     text-decoration: none;
     font-weight: bold;
 }
+
+#citado{
+    background-color:white;
+    padding:30px;
+}
+
+
+
+/*Efectos especiales*/
+
+
 .singin:hover{
     background-color: lightgray;
 }
 .login:hover{
     background-color: lightgray;
 }
+
 main .principal-text h2.active{ /* asignación de la animación */
-    animation-name: texto;
-    animation-duration: 5s;
+
+    animation-name: principalText;
+    animation-duration: 1.5s;
+
 }
-@keyframes texto{ /*animación*/
+
+main .principal-text h6.active{ 
+    
+    animation-name: principalText;
+    animation-duration: 1.5s;
+
+}
+main .principal-buttons.active{
+    
+    animation-name: principalButtons;
+    animation-duration: 1.5s;
+}
+@keyframes principalText{ /*animación*/
     0%{
         opacity: 0;
+        transform: translateX(-90px);
     }
     100%{
         /*transform: scale(1);*/
         opacity: 1;
+        transform: translateX(0);
+
+    }
+}
+
+@keyframes principalButtons{ /*animación*/
+    0%{
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100%{
+        /*transform: scale(1);*/
+        opacity: 1;
+        transform: translateY(0);
+
     }
 }
