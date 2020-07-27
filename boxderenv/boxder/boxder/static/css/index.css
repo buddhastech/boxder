@@ -8,12 +8,11 @@ main{
     background-size: cover;
 }
 main{
-    padding:50px;
     height:650px;
 }
 .principal-text{
-    margin-top:200px;
-    margin-left:40px;
+    margin-top:100px;
+    margin-left:100px;
 }
 .principal-text h2{
     font-size:55px;
@@ -23,9 +22,11 @@ main{
 .principal-text h6{
     letter-spacing: 5px;
     color:white;
+    margin-left:10px;
 }
 .principal-buttons{
     margin-top:40px;
+    margin-left:100px;
 }
 .singin, .login{
     background-color: white;
@@ -34,7 +35,7 @@ main{
     margin:20px;
     border-radius:7px;
 }
-.singin a, .login a{
+a .singin , a .login{
     color:#333333;
     text-decoration: none;
     font-weight: bold;
@@ -45,16 +46,98 @@ main{
     padding:30px;
 }
 
+#app-explanation{
+    padding:50px;
+    text-align: center;
+    font-size:20px;
+}
 
+span{
+    font-weight: bold;
+    color: #168AF7;
+}
+
+#app-explanation h5{
+    font-weight: bold;
+    font-size:25px;
+}
+#services{
+    background-color: lightgray;
+    padding:40px;
+}
+#services #services-one, #services-two{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+#services #services-one #assets-admin-service, #report-admin-service{
+    display:flex;
+    width:425px;
+    margin-top:20px;
+    height:150px;
+    border-bottom:10px #168AF7 solid;
+    margin-left:150px;
+    border-radius:5px;
+    background-color:white;
+    padding:20px;
+
+}
+
+#services #services-one i, #services-two i{
+    font-size:60px;
+    line-height: 100px;
+    color: #333333;
+}
+
+#services #services-one p, #services-two p{
+    margin-left:30px;
+}
+
+#services #services-one #users-admin-service, #auditory-admin-service{
+    display: flex;
+    margin-top:20px;
+    width:425px;
+    height:150px;
+    border-bottom:10px #168AF7 solid;
+    margin-right:150px;
+    border-radius:5px;
+    background-color:white;
+    padding:20px;
+}
 
 /*Efectos especiales*/
+#services #services-one #assets-admin-service:hover > i{
+    font-size:65px;
+    transition:ease 0.5s;
+}
 
+#services #services-one #users-admin-service:hover > i{
+    font-size:64px;
+    transition:ease 0.5s;
+}
 
-.singin:hover{
-    background-color: lightgray;
+#services #services-two #report-admin-service:hover > i{
+    font-size:65px;
+    transition:ease 0.5s;
+}
+
+#services #services-two #auditory-admin-service:hover > i{
+    font-size:65px;
+    transition:ease 0.5s;
+}
+
+.singin:hover {
+    background-color: transparent;
+    border: solid white 1px;
+    color:white;
+    transition: ease-in-out 0.1s;
 }
 .login:hover{
-    background-color: lightgray;
+    background-color: transparent;
+    border: solid white 1px;
+    color:white;
+    transition: ease-in-out 0.1s;
 }
 
 main .principal-text h2.active{ /* asignación de la animación */
