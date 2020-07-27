@@ -8,13 +8,14 @@
 {% block head %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="stylesheet" href="{% static 'css/navindex.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
 {% endblock %}
 
 {% block content %}
 
     <main>
         
-        {% include 'navindex.html' %}
+        {% include 'navbar/navindex.html' %}
         
         <div class="principal-text">
             <h2 id="principal" >BIENVENIDO A BOXDER</h2>
@@ -66,6 +67,61 @@
             </div>
         </div>
     </div>
+
+    <div id="contact">
+        <div id="social-networks">
+            <div id="social-description">
+                <h4>Siguenos en nuestras redes sociales</h4>
+                <p><span>Boxder</span> se encuentra en algunas de las redes sociales más famosas <br>
+                esto le permitirá saber más sobre nosotros, y seguir todos nuestros logros de cerca <br>
+                gracias a esto podemos brindarle un mejor apoyo en cuanto a la aplicación <br>
+                y evacuar las dudas que usted presente respecto al tema.</p>
+            </div>
+            <div id="social-icons">
+                <a href="#">
+                    <i class="fab fa-facebook-square" id="facebook"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-whatsapp-square" id="whatsapp"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-twitter-square" id="twitter"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-instagram-square" id="instagram"></i>
+                </a>
+            </div>
+        </div>
+
+        <div id="form-contact">
+
+            <form action="#" method="POST" id="form">
+                <h4>Envíanos un correo con tu información</h4>    
+                <label for="name">Nombre</label>
+                <input type="text" id="name" name="name">
+
+                <label for="surnames">Apellidos</label>
+                <input type="text" id="surnames" name="surnames">
+
+                <label for="phone-number">Número de teléfono</label>
+                <input type="text" id="phone-number" name="phone">
+
+                <label for="email">Correo</label>
+                <input type="text" id="email" name="email">
+
+                <label for="comment">Comentarios</label>
+                <textarea name="commentary" id="commet" cols="65" rows="5"></textarea>
+                
+                <div id="buttons-contact">
+                    <button type="submit" id="send">Enviar</button>
+                    <button type="reset" id="clean">Limpiar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% include 'footer/footer.html' %}
+
 <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
 
 {% endblock %}

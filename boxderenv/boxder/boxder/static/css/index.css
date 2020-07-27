@@ -30,7 +30,7 @@ main{
 }
 .singin, .login{
     background-color: white;
-    border:none;
+    border:1px solid white;
     padding:15px 40px;
     margin:20px;
     border-radius:7px;
