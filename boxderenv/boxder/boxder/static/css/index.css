@@ -6,13 +6,13 @@ main{
     background-image: url("../lib/img/boxderindex.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-}
-main{
     height:650px;
+    margin-top:50px;
 }
+
 .principal-text{
-    margin-top:100px;
-    margin-left:100px;
+    padding-top:170px;
+    padding-left:100px;
 }
 .principal-text h2{
     font-size:55px;
@@ -52,13 +52,16 @@ span{
     color: #168AF7;
 }
 
+#app-explanation{
+    background-color:white;
+}
 #app-explanation h5{
     font-weight: bold;
     font-size:25px;
 }
 #services{
     background-color: lightgray;
-    padding:40px;
+    padding:80px;
 }
 #services #services-one, #services-two{
     display:flex;
@@ -72,7 +75,7 @@ span{
     margin-top:20px;
     height:150px;
     border-bottom:10px #168AF7 solid;
-    margin-left:150px;
+    margin-left:100px;
     border-radius:5px;
     background-color:white;
     padding:20px;
@@ -95,7 +98,7 @@ span{
     width:425px;
     height:150px;
     border-bottom:10px #168AF7 solid;
-    margin-right:150px;
+    margin-right:100px;
     border-radius:5px;
     background-color:white;
     padding:20px;
