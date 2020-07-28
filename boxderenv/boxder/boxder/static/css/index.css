@@ -41,13 +41,8 @@ a .singin , a .login{
     font-weight: bold;
 }
 
-#citado{
-    background-color:white;
-    padding:30px;
-}
-
 #app-explanation{
-    padding:50px;
+    padding: 200px;
     text-align: center;
     font-size:20px;
 }
