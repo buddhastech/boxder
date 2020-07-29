@@ -69,3 +69,17 @@ class AssetModification(models.Model):
         db_table = "asset_modification"
         order_with_respect_to = "asset_id"
 
+
+class AssetSuspenssions(models.Model):
+
+    suspension_id = models.AutoField(primary_key=True, unique=True, blank=False, null=False,
+    verbose_name="suspension_id")
+    asset_id = models.ForeignKey(Assets, on_delete=models.PROTECT, verbose_name="asset_id")
+    number_of_suspenssions = models.IntegerField(blank=False, null=False,
+    verbose_name="number_of_suspenssions") 
+
+
+    class Meta:
+        
+        db_table = "asset_suspenssions"
+        order_with_respect_to = "suspension_id"
