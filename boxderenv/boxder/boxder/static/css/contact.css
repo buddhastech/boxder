@@ -1,6 +1,6 @@
 #contact{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding:40px;
     background-color:white;
 }
@@ -40,6 +40,7 @@ form textarea{
 }
 #buttons-contact button{
     margin:10px;
+    font-weight: bold;
 }
 #buttons-contact #send, #clean{
     padding:5px 30px;
@@ -66,39 +67,4 @@ form textarea{
     color: orange;
     border: 1px solid  orange;
     transition: ease 0.5s;
-}
-#social-networks #social-description h4{
-    font-weight: bold;
-}
-#social-networks{
-    margin-top:125px;
-    text-align: center;
-}
-#social-networks #social-icons{
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size:40px;
-}
-#social-networks #social-icons i{
-    margin:15px;
-}
-
-#social-networks #social-icons #facebook{
-    color:#3b5998;
-}
-#social-networks #social-icons i:hover{
-    transform: scale(2);
-    transition: ease-out 0.2s;
-
-}
-#social-networks #social-icons #whatsapp{
-    color:#4fce5d;
-}
-#social-networks #social-icons #twitter{
-    color:#00acee;
-}
-#social-networks #social-icons #instagram{
-    color: #A511C0;
 }
