@@ -12,8 +12,6 @@ class Assets(models.Model):
     cost = models.DecimalField(max_digits=8, decimal_places=6, blank=False, null=False,
     db_index=True)
     weight = models.IntegerField(blank=True, null=True)
-    asset_type = models.CharField(max_length=255, blank=False, null=False, verbose_name="asset_type",
-    db_index=True)
     admission_date = models.DateField(auto_now=True, verbose_name="admission_date",
     blank=False, null=False, db_index=True)
     

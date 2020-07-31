@@ -1,9 +1,3 @@
-#boxder-img{
-    width:250px;
-    margin-left:35px;
-    line-height: 50px;
-}
-
 nav{
     display:flex;   
     justify-content: space-between;
@@ -25,7 +19,4 @@ nav{
 #links a:hover{
     color:lightblue;
     transition:ease-in-out 0.1s;
-}
-body{
-    background-color:#168AF7;
 }

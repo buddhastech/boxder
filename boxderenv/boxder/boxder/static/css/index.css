@@ -1,13 +1,13 @@
-*{
-    padding:0;
-    margin:0;
-}
+
 main{
-    background-image: url("../lib/img/boxderindex.jpg");
+    background-image: url("../img/boxderindex.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height:650px;
     margin-top:50px;
+}
+body{
+    background-color:#168AF7;
 }
 
 .principal-text{

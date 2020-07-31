@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="stylesheet" href="{% static 'css/navindex.css' %}">
     <link rel="stylesheet" href="{% static 'css/contact.css' %}">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}"
 {% endblock %}
 
 {% block content %}
@@ -25,7 +24,7 @@
         </div>
 
         <div class="principal-buttons" id="principal-buttons">
-                <a href="#"><button type="button" class="singin">Registrarse</button></a>
+                <a href="{% url 'register' %}"><button type="button" class="singin">Registrarse</button></a>
                 <a href="#"><button type="button" class="login">Iniciar Sesión</button></a>
         </div>
 

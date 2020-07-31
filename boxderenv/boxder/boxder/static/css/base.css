@@ -1,0 +1,10 @@
+*{
+    padding:0;
+    margin:0;
+}
+
+#boxder-img{
+    width:250px;
+    margin-left:35px;
+    line-height: 50px;
+}

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Registro
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/registration.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<header>
+
+</header>
+
+<div id="regist">
+    <div id="info-form">
+        <img src="{% static 'img/boxdericonwhite.png' %}" alt="boxder" id="boxder-img">
+        <p>Ingresa tus datos personales <br>
+        para hacer el proceso de registro</p>
+        <a href="{% url 'inicio' %}"><button id="back-button"><i class="fas fa-angle-left"></i></button></a>
+    </div>
+    <div id="form-register">
+
+        <form action="#" method="POST">
+  
+            <h4>Registrarse</h4>
+            <div id="div1">
+                <div>
+                    <label for="identification_card">Cedula</label>
+                    <input type="text" name="identification_card" id="identification_card"
+                    placeholder="Escribe aquí..." autocomplete="off">    
+                </div>
+
+                <div>
+                    <label for="name">Nombre</label>
+                    <input type="text" name="name" id="name" autocomplete="off" placeholder="Escribe aquí...">
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" name="surnames" id="surnames" autocomplete="off" placeholder="Escribe aquí...">
+                </div>
+                
+                <div>
+                    <label for="phone">Teléfono</label>
+                    <input type="tel" name="phone" id="phone" placeholder="Escribe aquí..." autocomplete="off">
+                </div>
+            </div>
+
+            <div>
+                
+                <div>
+                    <label for="department">Departamento</label>
+                    <input type="text" name="department" id="department" 
+                    placeholder="Escribe aquí..." autocomplete="off">
+                </div>
+                <div>
+                    <label for="age">Edad</label>
+                    <input type="text" name="age" id="age" autocomplete="off" placeholder="Escribe aquí...">
+                </div>
+                
+            </div>
+
+            <label for="">Correo</label>
+            <input type="text" name="email" id="email" placeholder="Escribe aquí..." autocomplete="off">
+            
+            <button type="submit">Aceptar</button>
+
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

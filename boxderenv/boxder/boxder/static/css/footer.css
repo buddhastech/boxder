@@ -9,9 +9,13 @@ hr{
 }
 #footer-info{
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-#footer-info div{
+#footer-info .logo{
     padding:40px;
+    margin-right:30px;
 }
 
 .contact{
