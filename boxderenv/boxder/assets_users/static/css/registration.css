@@ -72,12 +72,10 @@ form input{
 form input:hover{
     border-bottom: 2px solid #168AF7;
     transition:ease 0.2s;
-    color:gray;
 }
 form div div input:hover{
     border-bottom: 2px solid #168AF7;
     transition:ease 0.2s;
-    color:gray;
 }
 form button{
     background-color:#333333;
@@ -107,7 +105,7 @@ form button:hover{
     position: absolute;
     bottom:310px;
     left:2px;
-    margin-left:190px;
+    margin-left:155px;
     width: 50px;
     height:50px;
     border-radius: 25px;

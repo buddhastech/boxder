@@ -1,12 +1,12 @@
-let principalText = document.getElementById('principal');  // Elemento h2 del main
-let secondText = document.getElementById('second');
-let buttons=document.getElementById('principal-buttons');
+let formLogin = document.getElementById('form-login');  // Elemento h2 del main
+let inputOne = document.getElementById('cedula');
+let inputTwo = document.getElementById('contra');
 
 window.addEventListener('load', () => {
     
-    principalText.classList.add('active');
-    secondText.classList.add('active');
-    buttons.classList.add('active');
+    formLogin.classList.add('active');
+    inputOne.classList.add('active');
+    inputTwo.classList.add('active');
 
 });
 
