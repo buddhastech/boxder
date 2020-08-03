@@ -24,7 +24,7 @@ main div div form input{
     border-top:none;
     border-left:none;
     border-right:none;
-    border-bottom: 3px solid #333333;
+    border-bottom: 2px solid gray;
     width:300px;
     font-weight: bold;
     columns: #333333;
@@ -49,18 +49,28 @@ main div div form #cedula{
 }
 
 main div div form input:hover{
-    border-bottom: 3px solid #168AF7;
+    border-bottom: 2px solid #168AF7;
     transition:ease 0.3s;
 }
-main div div form a{
-    color:#168AF7;
-    margin-top:20px;
-    font-weight: bold;
-    font-size:18px;
+
+main div div form #buttons{
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
-main div div form a:hover{
-    color: #333333;
-    transition:ease 0.5s;
+main div div form #buttons #register{
+    background-color:#168AF7;
+    border-color: #168AF7;
+}
+main div div form #buttons #register:hover{
+    background-color:white;
+    border-color:#168AF7;
+    transition: ease 0.3s;
+    color:#168AF7;
+}
+main div div form #buttons button{
+    margin:15px;
+    margin-top:40px;
 }
 
 main div div form h5{
@@ -98,30 +108,77 @@ main div div form button:hover{
 main div div #form-login.active{ 
 
     animation-name:formLogin;
-    animation-duration: 1.5s;
+    animation-duration: 2s;
 
+}
+main div div #form-login input.active{
+
+    animation-name: Inputs;
+    animation-duration: 1s;
+
+}
+main div div #form-login i.active{
+    animation-name: Icons;
+    animation-duration: 1s;
+}
+
+main div div #form-login #buttons #submit-button.active{
+    animation-name: buttons;
+    animation-duration: 2.5s;
+}
+
+main div div #form-login #buttons #register.active{
+    animation-name: buttons;
+    animation-duration: 2.5s;
+}
+@keyframes buttons{
+    0%{
+        opacity:0;
+        transform: translateY(150px);
+    }
+    100%{
+        opacity:1;
+        transform: translateY(0px);
+    }
+}
+@keyframes Icons{
+    0%{
+
+        opacity:0;
+        position: absolute;
+        z-index: 1;
+        transform: translateX(-50px);
+    }
+
+    100%{
+
+        opacity:1;
+        position: absolute;
+        z-index: 1;
+        transform: translateX(0px);
+    }
 }
 
 
 @keyframes Inputs{
-    0%{
+    from{
         opacity:0;
-        transform: translateX(-100px);
+        transform: translateX(-50px);
     }
-    100%{
+    to{
         opacity: 1;
         transform: translateX(0);
     }
 }
 
 @keyframes formLogin{ 
-    0%{
+    from{
         opacity: 0;
-        transform: translateY(100px);
+        transform: translateY(-120px);
     }
-    100%{
+    to{
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0px);
 
     }
 }

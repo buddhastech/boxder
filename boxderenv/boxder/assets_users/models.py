@@ -61,6 +61,7 @@ class Users(models.Model):
     admission_date = models.DateField(auto_now=True, verbose_name="admission_date",
     db_index=True)
     email = models.EmailField(unique=True, blank=False, null=False, db_index=True)
+    password = models.CharField(blank=False, null=False, max_length=255)
 
     class Meta:
 

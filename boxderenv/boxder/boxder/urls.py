@@ -22,3 +22,4 @@ urlpatterns = [
     path('inicio/', index, name='inicio'),
     path('', include('assets_users.urls')),
 ]
+
