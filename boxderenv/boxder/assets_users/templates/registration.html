@@ -23,14 +23,6 @@
         <a href="{% url 'inicio' %}"><button id="back-button"><i class="fas fa-angle-left"></i></button></a>
     </div>
     <div id="form-register">
-        <ul>
-            {% for error in errors %}
-                <li>
-                    {{ error }}
-                </li>
-            {% endfor %}    
-        </ul>
-       
         <form action="/regist/" method="POST">
             {% csrf_token %}
             <h4>Registrarse</h4>
@@ -38,12 +30,14 @@
                 <div>
                     <label for="identification_card">Cedula</label>
                     <input type="text" name="identification_card" id="identification_card"
-                    placeholder="Escribe aquí..." autocomplete="off">    
+                    placeholder="Escribe aquí..." autocomplete="off">
+                    <input type="text" id="error-text1" disabled>    
                 </div>
 
                 <div>
                     <label for="name">Nombre</label>
                     <input type="text" name="name" id="name" autocomplete="off" placeholder="Escribe aquí...">
+                    <input type="text" id="error-text2" disabled> 
                 </div>
             </div>
 
@@ -51,11 +45,13 @@
                 <div>
                     <label for="apellidos">Apellidos</label>
                     <input type="text" name="surnames" id="surnames" autocomplete="off" placeholder="Escribe aquí...">
+                    <input type="text" id="error-text3" disabled> 
                 </div>
                 
                 <div>
                     <label for="phone">Teléfono</label>
-                    <input type="tel" name="phone" id="phone" placeholder="Escribe aquí..." autocomplete="off">
+                    <input type="tel" name="phone" id="phone" placeholder="506 +..." autocomplete="off">
+                    <input type="text" id="error-text4" disabled> 
                 </div>
             </div>
 
@@ -65,21 +61,25 @@
                     <label for="department">Departamento</label>
                     <input type="text" name="department" id="department" 
                     placeholder="Escribe aquí..." autocomplete="off">
+                    <input type="text" id="error-text5" disabled> 
                 </div>
                 <div>
                     <label for="age">Edad</label>
                     <input type="text" name="age" id="age" autocomplete="off" placeholder="Escribe aquí...">
+                    <input type="text" id="error-text6" disabled> 
                 </div>
                 
             </div>
             <div>
                 <div>
                     <label for="email">Correo</label>
-                    <input type="email" name="email" id="email" placeholder="Escribe aquí..." autocomplete="off">    
+                    <input type="email" name="email" id="email" placeholder="alberth24@..." autocomplete="off">    
+                    <input type="text" id="error-text7" disabled> 
                 </div>
                 <div>
                     <label for="pass">Contraseña</label>
                     <input type="password" name="password" id="pass" placeholder="Escribe aquí...">
+                    <input type="text" id="error-text8" disabled> 
                 </div>
             </div>
 
@@ -88,6 +88,7 @@
     </div>
 </div>
 
-<script type="text/javascript" src="{% static 'js/validationUser.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/validationClient.js' %}"></script>
+
 
 {% endblock %}

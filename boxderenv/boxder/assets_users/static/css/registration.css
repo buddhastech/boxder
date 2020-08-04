@@ -2,7 +2,7 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    padding:40px;
+    padding:20px;
 }
 body{
     background-color: #168AF7;
@@ -20,7 +20,10 @@ form{
     background-color: white;
     display: flex;
     flex-direction: column;
-    padding:40px;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:40px;
+    padding-right: 40px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     box-shadow: 5px 5px 20px #333333;
@@ -50,7 +53,12 @@ form div div input{
     border-bottom: 2px solid lightgray;
     padding:5px;
 }
-
+form div div #error-text1, #error-text2, #error-text3, #error-text4, #error-text5, #error-text6, #error-text7, #error-text8{
+    margin-right:15px;
+    margin-left:15px;
+    border:1px solid white;
+    padding:0px;
+}
 form div{
     display:flex;
     flex-direction: row;
@@ -71,7 +79,7 @@ form button{
     color:white;
     padding:10px;
     font-weight: bold;
-    margin-top:25px;
+    margin-bottom:20px;
 }
 form button:hover{
 
