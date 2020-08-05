@@ -5,7 +5,7 @@ import binascii
 import re
 from assets_users.models import Assets
 
-context = {'errors':[], 'corrects':[]}  
+ 
 
 def hashing_password(passw):
         salt = hashlib.sha256(os.urandom(32)).hexdigest().encode('ascii') 
@@ -19,34 +19,9 @@ def hashing_password(passw):
         
         return storage_password
 
-"""def validate_data(data):
-
-    global context
-
-    if not(data['name'].isalpha()):
-        context['errors'].append('Nombre inválido')
-
-    if not(data['surnames'].isalpha()):
-        context['errors'].append('Apellidos inválidos')
-
-    if not(data['phone'].isdigit()):
-        context['errors'].append('Número de teléfono inválido')
-    
-    if not(data['department'].isalpha()):
-        context['errors'].append('Departamento inválido')
-
-    if not(data['age'].isdigit()):
-        context['errors'].append('Edad inválida')
-    
-    if not(re.findall('\S+@\S+', data['email'])):
-        context['errors'].append('Correo inválido')
-    
-
-    return context
-"""
 def user_register(request):
-
-    global context
+    
+    context = {'errors':'e'} 
 
     if request.method == "POST":
 
@@ -57,7 +32,9 @@ def user_register(request):
             'age':request.POST['age'],'email':request.POST['email']
         }
 
-        return redirect('/registration/')
+        # return redirect('/registration/')
+
+    return render(request, 'registration.html')
 
 def registration_form(request):
 
