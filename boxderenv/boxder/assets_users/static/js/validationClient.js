@@ -1,3 +1,10 @@
+function correctionData(inputCollection, inputName){
+
+    inputCollection[inputName].style.borderColor = "green";
+    inputCollection[inputName].onmouseout = () => {inputCollection[inputName].style.borderColor = "green"};
+    inputCollection[inputName].onmouseenter = () => {inputCollection[inputName].style.borderColor = "lightgray"};
+
+};
 
 window.addEventListener('submit', (e) => {
     let flag = true;
@@ -39,9 +46,7 @@ window.addEventListener('submit', (e) => {
     }else{
 
         inputsError['error-text1'].value = "";
-        dataForm['id'].style.borderColor = "lightgray";
-        dataForm['id'].onmouseout = () => {dataForm['id'].style.borderColor = "lightgray"};
-        dataForm['id'].onmouseenter = () => {dataForm['id'].style.borderColor = "#168AF7"};
+        correctionData(dataForm, 'id');
     }
     if (parseInt(dataForm['name'].value) || dataForm['name'].value.length > 15 
         || dataForm['name'].value == ""){
@@ -57,9 +62,7 @@ window.addEventListener('submit', (e) => {
     }else{
         
         inputsError['error-text2'].value = "";
-        dataForm['name'].style.borderColor = "lightgray";
-        dataForm['name'].onmouseout = () => {dataForm['name'].style.borderColor = "lightgray"};
-        dataForm['name'].onmouseenter = () => {dataForm['name'].style.borderColor = "#168AF7"};
+        correctionData(dataForm, 'name');
         
     }
     if (parseInt(dataForm['surnames'].value) || dataForm['surnames'].value.length > 50
@@ -75,9 +78,7 @@ window.addEventListener('submit', (e) => {
     }else{
         
         inputsError['error-text3'].value = "";
-        dataForm['surnames'].style.borderColor = "lightgray";
-        dataForm['surnames'].onmouseout = () => {dataForm['surnames'].style.borderColor = "lightgray"};
-        dataForm['surnames'].onmouseenter = () => {dataForm['surnames'].style.borderColor = "#168AF7"};
+        correctionData(dataForm, 'surnames');
         
     }
 
@@ -94,10 +95,7 @@ window.addEventListener('submit', (e) => {
     }else{
         
         inputsError['error-text4'].value = "";
-        dataForm['phone'].style.borderColor = "lightgray";
-        dataForm['phone'].onmouseout = () => {dataForm['phone'].style.borderColor = "lightgray"};
-        dataForm['phone'].onmouseenter = () => {dataForm['phone'].style.borderColor = "#168AF7"};
-    
+        correctionData(dataForm, 'phone');
     }
     if (parseInt(dataForm['department'].value) || dataForm['department'].value.length > 25
         || dataForm['department'].value == ""){
@@ -112,10 +110,7 @@ window.addEventListener('submit', (e) => {
     }else{
         
         inputsError['error-text5'].value = "";
-        dataForm['department'].style.borderColor = "lightgray";
-        dataForm['department'].onmouseout = () => {dataForm['department'].style.borderColor = "lightgray"};
-        dataForm['department'].onmouseenter = () => {dataForm['department'].style.borderColor = "#168AF7"};
-    
+        correctionData(dataForm, 'department');
     }
     if (!parseInt(dataForm['age'].value) || dataForm['age'].value.length > 2 
         || dataForm['age'].value == ""){
@@ -130,10 +125,7 @@ window.addEventListener('submit', (e) => {
     }else{
         
         inputsError['error-text6'].value = "";
-        dataForm['age'].style.borderColor = "lightgray";
-        dataForm['age'].onmouseout = () => {dataForm['age'].style.borderColor = "lightgray"};
-        dataForm['age'].onmouseenter = () => {dataForm['age'].style.borderColor = "#168AF7"};
-    
+        correctionData(dataForm, 'age');
     }
     if (parseInt(dataForm['email'].value) || dataForm['email'].value == ""){
         
@@ -147,10 +139,8 @@ window.addEventListener('submit', (e) => {
     }else{
         
         inputsError['error-text7'].value = "";
-        dataForm['email'].style.borderColor = "lightgray";
-        dataForm['email'].onmouseout = () => {dataForm['email'].style.borderColor = "lightgray"};
-        dataForm['email'].onmouseenter = () => {dataForm['email'].style.borderColor = "#168AF7"};
-    
+        correctionData(dataForm, 'email');
+
     }
     if (dataForm['password'].value.length > 12 || dataForm['password'].value.length < 8
         || dataForm['password'].value == ""){
@@ -162,14 +152,11 @@ window.addEventListener('submit', (e) => {
         dataForm['password'].onmouseout = () => {dataForm['password'].style.borderColor = "#D34638"};
         dataForm['password'].onmouseenter = () => {dataForm['password'].style.borderColor = "#D34638"};
 
-        }else{
+    }else{
         
-            inputsError['error-text8'].value = "";
-            dataForm['password'].style.borderColor = "lightgray";
-            dataForm['password'].onmouseout = () => {dataForm['password'].style.borderColor = "lightgray"};
-            dataForm['password'].onmouseenter = () => {dataForm['password'].style.borderColor = "#168AF7"};
-        
-        }
+        inputsError['error-text8'].value = "";
+        correctionData(dataForm, 'password');
+    }
 
     if (flag === false){
         
