@@ -5,16 +5,14 @@ function dataFromServer(data){
             position: 'center',
             icon: 'success',
             title: 'Registro con éxito',
-            showConfirmButton: false,
-            timer: 1500
+            showConfirmButton: true
           });
 
     }else{
         Swal.fire({
             icon: 'error',
-            title: 'Ha ocurrido un error, vuelve a intentarlo',
-            text: 'Something went wrong!',
-            footer: '<a href>Why do I have this issue?</a>'
+            title: 'Error interno',
+            text: 'No se han podido procesar sus datos,',
           });
     }
 

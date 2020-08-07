@@ -13,29 +13,29 @@
     <main>
         <div>
             <div>
-                <form action="#" method="POST" id="form-login">
+                <form action="/login/" method="POST" id="form-login">
+                    {% csrf_token %}
                     <img src="../static/img/boxdergray.png" alt="" id="logo">
 
                     <h5>Bienvenido a</h5>
                     <img src="../static/img/boxdertext.png" alt="" id="logotext">
 
                     <i class="fas fa-id-card" id="card"></i>
-                        <input type="text" placeholder="Cedula" id="cedula" autocomplete="off">
+                        <input type="text" name="identification_card" placeholder="Cedula" id="identification_card" autocomplete="off">
                     
                     <i class="fas fa-key" id="pass"></i>
-                        <input type="password" placeholder="Contraseña" id="contra">
+                        <input type="password" name="password" placeholder="Contraseña" id="password">
                     
                     <div id="buttons">
                         <button type="submit" id="submit-button">Iniciar sesión</button>
                         <a href="{% url 'register' %}"><button id="register" type=button>Registrarse</button></a>
-                        
                     </div>
-
                 </form>
                 <img src="../static/img/boxderindex2.2.jpg" alt="">
             </div>
         </div>
     </main>
 <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/validationClient.js' %}"></script>
 
 {% endblock %}

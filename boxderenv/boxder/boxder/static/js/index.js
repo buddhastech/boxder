@@ -1,6 +1,6 @@
 let formLogin = document.getElementById('form-login');  // Elemento h2 del main
-let inputOne = document.getElementById('cedula');
-let inputTwo = document.getElementById('contra');
+let inputOne = document.getElementById('identification_card');
+let inputTwo = document.getElementById('password');
 let identificationIcon = document.getElementById('card');
 let passwordIcon = document.getElementById('pass');
 let submitButton = document.getElementById('submit-button');
