@@ -1,6 +1,6 @@
 function dataFromServer(data){
     
-    if(data == '1'){
+    if(data == '1'){ // Usuario agregado correctamente
         Swal.fire({
             position: 'center',
             icon: 'success',
@@ -8,11 +8,18 @@ function dataFromServer(data){
             showConfirmButton: true
           });
 
-    }else{
+    }else if( data == '0'){ // Error al validar datos
         Swal.fire({
             icon: 'error',
             title: 'Error interno',
-            text: 'No se han podido procesar sus datos,',
+            text: 'No se han podido procesar sus datos',
+          });
+
+    }else if(data == '2'){  // Error de integridad de datos
+        Swal.fire({
+            icon: 'error',
+            title: 'Error interno',
+            text: 'Algunos datos ya existen y no pueden usarse',
           });
     }
 
