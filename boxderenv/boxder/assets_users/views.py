@@ -16,26 +16,30 @@ def user_register(request):
 
     if request.method == "POST":
 
-        post_data = {
+        # datos que llegan del cliente
+        post_data = { 
             'id_card':request.POST['identification_card'],
             'name':request.POST['name'], 'surnames':request.POST['surnames'],
             'phone':request.POST['phone'],'department':request.POST['department'],
             'age':request.POST['age'],'email':request.POST['email']
         }
 
-        if validate_data(post_data):  # valida los datos
+        # valida los datos
+        if validate_data(post_data):  
             if registration(post_data, hashing_password(request.POST['password']), department_list()):
                 # realiza la insercción de datos a la tabla users
                 context['response'] = '1'
                 return render(request, 'registration.html', context)
 
-            else: # error al hacer la insercción
+            # error al hacer la insercción (integrityError)
+            else: 
                 context['response'] = '2'
                 context['departments'] = department_list()
                 context['data'] = post_data
                 return render(request, 'registration.html', context)
 
-        else: # error al validar datos
+        # error al validar datos
+        else: 
             context['response'] = '0'  # contexto que se envía al html y se rescata para JS
             context['departments'] = department_list()
             context['data'] = post_data

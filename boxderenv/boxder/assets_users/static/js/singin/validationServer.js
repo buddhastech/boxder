@@ -6,8 +6,10 @@ function dataFromServer(data){
             icon: 'success',
             title: 'Registro con éxito',
             showConfirmButton: true
+          }).then(() => {
+            window.location.href = "../inicio";
           });
-
+          
     }else if( data == '0'){ // Error al validar datos
         Swal.fire({
             icon: 'error',

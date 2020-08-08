@@ -2,6 +2,7 @@ from django.db import models
 from datetime import datetime
 from assets_users.models import Users # import of Users model
 from assets_users.models import Assets # import of Asset model
+from django.utils import timezone
 
 class UserRegistration(models.Model):
 
