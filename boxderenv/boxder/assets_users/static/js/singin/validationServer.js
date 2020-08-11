@@ -1,6 +1,7 @@
 function dataFromServer(data){
     
-    if(data == '1'){ // Usuario agregado correctamente
+    // Usuario agregado correctamente
+    if(data == '1'){ 
         Swal.fire({
             position: 'center',
             icon: 'success',
@@ -9,15 +10,17 @@ function dataFromServer(data){
           }).then(() => {
             window.location.href = "../inicio";
           });
-          
-    }else if( data == '0'){ // Error al validar datos
+
+    // Error al validar datos
+    }else if( data == '0'){ 
         Swal.fire({
             icon: 'error',
             title: 'Error interno',
             text: 'No se han podido procesar sus datos',
           });
 
-    }else if(data == '2'){  // Error de integridad de datos
+    // Error de integridad de datos
+    }else if(data == '2'){  
         Swal.fire({
             icon: 'error',
             title: 'Error interno',
@@ -25,4 +28,4 @@ function dataFromServer(data){
           });
     }
 
-}
+};

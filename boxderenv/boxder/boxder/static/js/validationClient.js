@@ -19,6 +19,7 @@ function validateData(e){
         flag = false;
         errorInput(password);
     }
+    
     if (flag === false){
         e.preventDefault();
     }
