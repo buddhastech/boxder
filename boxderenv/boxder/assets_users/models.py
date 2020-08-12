@@ -29,7 +29,6 @@ class Assets(models.Model):
     class Meta:
 
         db_table = "assets"
-        order_with_respect_to = "code"
 
 
 class Departments(models.Model):

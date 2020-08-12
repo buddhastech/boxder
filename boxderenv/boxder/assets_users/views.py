@@ -1,11 +1,10 @@
-import os
 from django.shortcuts import render, redirect
 import re
 
 from assets_users.models import Assets
 from assets_users.models import Departments
 from .local_modules.validations import validate_data
-from .local_modules.hashing import hashing_password, salt, key, new_key, compare_password
+from .local_modules.hashing import hashing_password, compare_password
 from .local_modules.registration_users import registration 
 from .local_modules.department_list import department_list
 from .local_modules.login_user import login
@@ -26,11 +25,11 @@ def user_register(request):
             'age':request.POST['age'],'email':request.POST['email']
         }
 
-        passwor_hash = hashing_password(request.POST['password']) + salt
+        password_hash = hashing_password(request.POST["password"]) 
 
         # valida los datos
         if validate_data(post_data):  
-            if registration(post_data, passwor_hash, department_list()):
+            if registration(post_data, password_hash, department_list()):
                 # realiza la insercción de datos a la tabla users
                 context['response'] = '1'
                 return render(request, 'registration.html', context)
@@ -62,17 +61,15 @@ def user_login(request):
         if object_request:
 
             for object in object_request:
-                password_user = object.password[32:]
+                password_user = object.password
+        
+        if compare_password(post_data['password'], password_user):
+            print("Autentificación concedida")
+            return render(request, 'index.html')
 
-        print(password_user)
-        print("\n")
-        print(hashing_password(post_data['password']))
-
-        # necesito extraer la cedula y la contraseña para hacer
-        # la comparación, hacer eso mañana
-
-        return render(request, 'index.html')
-
+        else:
+            return render(request, 'index.html', )
+            
 # vista para formulario
 def registration_form(request):
 

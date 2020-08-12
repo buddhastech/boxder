@@ -1,23 +1,27 @@
-import os
-import hashlib
-
-salt = os.urandom(32) # forma la sal de 32 bits
-key = ""
-new_key = ""
+import bcrypt
 
 def hashing_password(passw): # genera la contraseña hash y la une con la sal
+        try:
+                passw = passw.encode()
+                salt = bcrypt.gensalt(rounds=16)
+                hashed = bcrypt.hashpw(passw, salt)
+
+                return hashed.decode('utf-8')
         
-        hashing = hashlib.pbkdf2_hmac('sha256', 
-        passw.encode('utf-8'), 
-        salt, 
-        100000,
-        dklen=64)  # realiza el hashing
-                
-        return hashing
+        except TypeError as e:
+                print("Error: ", e)
 
-def compare_password():
+def compare_password(new_password, password):
 
-        if key == new_key:
-                return 1
-        else:
-                return 0
+        new_password = new_password.encode()
+        password = password.encode()
+        
+        try:
+                if bcrypt.checkpw(new_password, password):
+                        return 1
+                else:
+                        return 0
+        except TypeError as e:
+                print("Error de chequeo: ", e)
+
+
