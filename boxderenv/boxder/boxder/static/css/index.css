@@ -182,3 +182,78 @@ main div div #form-login #buttons #register.active{
 
     }
 }
+
+
+@media (min-width: 320px) and (max-width: 470px){
+    
+    body{
+        background-color: white;
+    }
+    
+    main div div #logo{
+        margin-left:115px;
+    }
+
+    main div #formulario form{
+        position: absolute;
+        left:25px;
+        top:0px;
+    }
+    #background-img{
+        display:none;
+    }
+
+}
+
+@media (min-width: 470px) and (max-width: 768px){
+
+    body{
+        background-color: white;
+    }
+    main div #formulario form{
+        position: absolute;
+        left: 180px;
+        top:0px;
+    }
+    #background-img{
+        display:none;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+
+    #background-img{
+        display: block;
+    }
+
+    main div #formulario form{
+        background-color:transparent;
+        position: absolute;
+        top:85px;
+        padding: 0px 0px;
+    }
+
+    main div div form #card{
+        position: absolute;
+        top:237px;
+        left:5px;
+        font-size: 20px;
+        color:gray;
+    }
+
+    main div div form #pass{
+        position: absolute;
+        top:300px;
+        left:5px;
+        font-size: 20px;
+        color:gray;
+    }
+
+}
+
+@media (min-width: 1280px){
+    #background-img{
+        display: block;
+    }
+}

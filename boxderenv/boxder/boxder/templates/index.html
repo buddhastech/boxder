@@ -12,7 +12,7 @@
 {% block content %}
     <main>
         <div>
-            <div>
+            <div id="formulario">
                 <form action="/login/" method="POST" id="form-login">
                     {% csrf_token %}
                     <img src="../static/img/boxdergray.png" alt="" id="logo">
@@ -31,7 +31,7 @@
                         <a href="{% url 'register' %}"><button id="register" type=button>Registrarse</button></a>
                     </div>
                 </form>
-                <img src="../static/img/boxderindex2.2.jpg" alt="">
+                <img src="../static/img/boxderindex2.2.jpg" alt="" id="background-img">
             </div>
         </div>
     </main>
