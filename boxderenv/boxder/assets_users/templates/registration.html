@@ -15,14 +15,14 @@
 
 </header>
 
+<a href="{% url 'inicio' %}"><button id="back-button"><i class="fas fa-angle-left"></i></button></a>
+
 <div id="regist">
     <div id="info-form">
         <img src="{% static 'img/boxdericonwhite.png' %}" alt="boxder" id="boxder-img">
         
         <p>Ingresa tus datos personales <br>
         para hacer el proceso de registro</p>
-        
-        <a href="{% url 'inicio' %}"><button id="back-button"><i class="fas fa-angle-left"></i></button></a>
     </div>
     <div id="form-register">
         <form action="/regist/" method="POST">
