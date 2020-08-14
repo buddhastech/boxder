@@ -7,6 +7,8 @@
 
 {% block head %}
     <link rel="stylesheet" href="{% static 'css/registration.css' %}">
+    <link rel="stylesheet" href="{% static 'css/registration_media.css' %}">
+    <link rel="stylesheet" href="{% static 'css/registration_alerts.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -25,7 +27,7 @@
         para hacer el proceso de registro</p>
     </div>
     <div id="form-register">
-        <form action="/regist/" method="POST">
+        <form action="/regist/" method="POST" id="form-regist">
             {% csrf_token %}
 
             <h4>Registrarse</h4>
@@ -104,6 +106,7 @@
 
 <script type="text/javascript" src="{% static 'js/singin/validationServer.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/singin/validationClient.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/singin/registration.js' %}"></script>
 
 {% if response %}
     <script type="text/javascript">

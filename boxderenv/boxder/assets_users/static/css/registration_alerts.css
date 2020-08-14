@@ -1,0 +1,22 @@
+#identification_card.warning, #name.warning, 
+#surnames.warning, #phone.warning,
+#department.warning, #age.warning,
+#email.warning, #pass.warning{
+
+    border-color: #D34638;
+}
+
+#error-text1.warning, #error-text2.warning,
+#error-text3.warning, #error-text4.warning, 
+#error-text5.warning, #error-text6.warning,
+#error-text7.warning, #error-text8.warning{
+    
+    color: #D34638;
+}
+
+#identification_card.good, #name.good, 
+#surnames.good, #phone.good, #department.good,
+#age.good, #email.good, #pass.good{
+    
+    border-color:green;
+}

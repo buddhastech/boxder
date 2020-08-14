@@ -1,0 +1,244 @@
+@media (min-width: 320px) and (max-width: 470px){
+    
+    body{
+        background-color:white;
+    }
+
+    form div{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    form{
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        padding-top:0px;
+        padding-bottom:0px;
+        padding-left:0px;
+        padding-right: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        box-shadow: 0px 0px 0px #333333;
+    }
+    
+    #info-form{
+        display:none;
+    }
+
+    form div div input{
+        margin-right:15px;
+        margin-left:15px;
+        border-right:none;
+        border-left:none;
+        border-top:none;
+        border-bottom: 2px solid lightgray;
+        padding:15px;
+        width: 300px;
+    }
+    
+    #back-button{
+        position: absolute;
+        bottom:1153px;
+        left:-135px;
+        margin-left:155px;
+        width: 50px;
+        height:50px;
+        border-radius: 25px;
+        font-size:30px;
+        border:none;
+        color: #168AF7;
+        background-color:white;
+    }
+
+    form h4{
+        padding-top:20px;
+        padding-bottom:20px;
+        padding-left:50px;
+        color:#168AF7;
+        font-weight: bold;
+    }
+}
+
+@media (min-width: 470px) and (max-width: 768px){
+    body{
+        background-color:white;
+    }
+
+    form div{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    form{
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 0px;
+        padding-right: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        box-shadow: 0px 0px 0px #333333;
+    }
+    
+    #info-form{
+        display:none;
+    }
+
+    form div div input{
+        margin-right:15px;
+        margin-left:15px;
+        border-right:none;
+        border-left:none;
+        border-top:none;
+        border-bottom: 2px solid lightgray;
+        padding:15px;
+        width: 300px;
+    }
+    
+    #back-button{
+        position: absolute;
+        bottom: 659px;
+        left: -135px;
+        margin-left:155px;
+        width: 50px;
+        height:50px;
+        border-radius: 25px;
+        font-size:30px;
+        border:none;
+        color: #168AF7;
+        background-color:white;
+    }
+
+    form h4{
+        padding-top:20px;
+        padding-bottom:20px;
+        padding-left:70px;
+        color:#168AF7;
+        font-weight: bold;
+    }
+    
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+    body{
+        background-color:white;
+    }
+
+    form div{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    form{
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 0px;
+        padding-right: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        box-shadow: 0px 0px 0px #333333;
+    }
+    
+    #info-form{
+        display:none;
+    }
+
+    form div div input{
+        margin-right:15px;
+        margin-left:15px;
+        border-right:none;
+        border-left:none;
+        border-top:none;
+        border-bottom: 2px solid lightgray;
+        padding:15px;
+        width: 300px;
+    }
+    
+    #back-button{
+        position: absolute;
+        bottom: 659px;
+        left:-105px;
+        margin-left:155px;
+        width: 50px;
+        height:50px;
+        border-radius: 25px;
+        font-size:30px;
+        border:none;
+        color: #168AF7;
+        background-color:white;
+    }
+
+    form h4{
+        padding-top:20px;
+        padding-bottom:20px;
+        padding-left:50px;
+        color:#168AF7;
+        font-weight: bold;
+    }
+    
+}
+
+@media (min-width: 1024px) and (max-width: 1200px){
+
+    form div{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    form{
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        padding-top:0px;
+        padding-bottom:0px;
+        padding-left:20px;
+        padding-right: 20px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        box-shadow: 5px 5px 20px #333333;
+    }
+
+    form div div input{
+        margin-right:15px;
+        margin-left:15px;
+        border-right:none;
+        border-left:none;
+        border-top:none;
+        border-bottom: 2px solid lightgray;
+        padding:15px;
+        width: 250px;
+    }
+    
+    #back-button{
+        position: absolute;
+        bottom: 359px;
+        left:-155px;
+        margin-left:155px;
+        width: 50px;
+        height:50px;
+        border-radius: 25px;
+        font-size:30px;
+        border:none;
+        color: #168AF7;
+        background-color:white;
+    }
+
+    form h4{
+        padding-top:20px;
+        padding-bottom:20px;
+        padding-left:50px;
+        color:#168AF7;
+        font-weight: bold;
+    }
+    
+}

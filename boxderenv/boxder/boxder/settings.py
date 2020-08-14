@@ -57,8 +57,8 @@ ROOT_URLCONF = 'boxder.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/buddhastech/Escritorio/assets/boxderenv/boxder/boxder/templates',
-        '/home/buddhastech/Escritorio/assets/boxderenv/boxder/assets_users/templates'],
+        'DIRS': ['/home/buddhastech/me/assets/boxderenv/boxder/boxder/templates',
+        '/home/buddhastech/me/assets/boxderenv/boxder/assets_users/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,5 +126,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = ['/home/buddhastech/Escritorio/assets/boxderenv/boxder/boxder/static',
-'/home/buddhastech/Escritorio/assets/boxderenv/boxder/assets_users/static']
+STATICFILES_DIRS = ['/home/buddhastech/me/assets/boxderenv/boxder/boxder/static',
+'/home/buddhastech/me/assets/boxderenv/boxder/assets_users/static']

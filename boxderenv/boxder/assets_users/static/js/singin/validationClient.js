@@ -1,12 +1,21 @@
-function correctionData(inputCollection, inputName){
 
-    inputCollection[inputName].style.borderColor = "green";
-    inputCollection[inputName].onmouseout = () => {inputCollection[inputName].style.borderColor = "green"};
-    inputCollection[inputName].onmouseenter = () => {inputCollection[inputName].style.borderColor = "lightgray"};
+function verificationClass(inputId, inputCollection){
+    
+    if (inputCollection[inputId].classList.contains('good')){
+        inputCollection[inputId].classList.remove('good');
+    }
 
 };
 
-window.addEventListener('submit', (e) => {
+function errorInput(inputId, inputCollection, errorCollection, errorId, msj){
+    
+    inputCollection[inputId].classList.add('warning');
+    errorCollection[errorId].classList.add('warning');
+    errorCollection[errorId].value = msj;
+
+};
+
+function validationForm(e){
     let flag = true;
 
     let dataForm = {
@@ -31,131 +40,120 @@ window.addEventListener('submit', (e) => {
         'error-text8': document.getElementById('error-text8')
     };
     
-
     if (!parseInt(dataForm['id'].value) || dataForm['id'].value.length != 9 
         && dataForm['id'].value != ""){
         
-        flag = false;
-
-        dataForm['id'].style.borderColor = "#D34638";
-        inputsError['error-text1'].value = "Cedula inválida";
-        inputsError['error-text1'].style.color = "#D34638";
-        dataForm['id'].onmouseout = () => {dataForm['id'].style.borderColor = "#D34638"};
-        dataForm['id'].onmouseenter = () => {dataForm['id'].style.borderColor = "#D34638"};
+        flag = false;        
+        verificationClass('id', dataForm);
+        errorInput('id', dataForm, inputsError, 'error-text1', 'Cédula inválida');
 
     }else{
 
+        dataForm['id'].classList.add('good');
         inputsError['error-text1'].value = "";
-        correctionData(dataForm, 'id');
+
     }
+
     if (parseInt(dataForm['name'].value) || dataForm['name'].value.length > 15 
         || dataForm['name'].value == ""){
         
         flag = false;
         
-        dataForm['name'].style.borderColor = "#D34638";
-        inputsError['error-text2'].value = "Nombre inválido";
-        inputsError['error-text2'].style.color = "#D34638";
-        dataForm['name'].onmouseout = () => {dataForm['name'].style.borderColor = "#D34638"};
-        dataForm['name'].onmouseenter = () => {dataForm['name'].style.borderColor = "#D34638"};
+        verificationClass('name', dataForm);
+        errorInput('name', dataForm, inputsError, 'error-text2', 'Nombre inválido');
     
     }else{
         
         inputsError['error-text2'].value = "";
-        correctionData(dataForm, 'name');
+        dataForm['name'].classList.add('good');
         
     }
+
     if (parseInt(dataForm['surnames'].value) || dataForm['surnames'].value.length > 50
         || dataForm['surnames'].value == ""){
 
         flag = false;
-        dataForm['surnames'].style.borderColor = "#D34638";
-        inputsError['error-text3'].value = "Apellidos inválidos";
-        inputsError['error-text3'].style.color = "#D34638";
-        dataForm['surnames'].onmouseout = () => {dataForm['surnames'].style.borderColor = "#D34638"};
-        dataForm['surnames'].onmouseenter = () => {dataForm['surnames'].style.borderColor = "#D34638"};
+
+        verificationClass('surnames', dataForm);
+        errorInput('surnames', dataForm, inputsError, 'error-text3', 'Apellidos inválidos');
 
     }else{
         
         inputsError['error-text3'].value = "";
-        correctionData(dataForm, 'surnames');
-        
+        dataForm['surnames'].classList.add('good');
+
     }
 
     if (!parseInt(dataForm['phone'].value) || dataForm['phone'].value.length != 8
         || dataForm['phone'].value == ""){
         
         flag = false;
-        dataForm['phone'].style.borderColor = "#D34638";
-        inputsError['error-text4'].value = "Número de teléfono inválido";
-        inputsError['error-text4'].style.color = "#D34638";
-        dataForm['phone'].onmouseout = () => {dataForm['phone'].style.borderColor = "#D34638"};
-        dataForm['phone'].onmouseenter = () => {dataForm['phone'].style.borderColor = "#D34638"};
-          
+        
+        verificationClass('phone', dataForm);
+        errorInput('phone', dataForm, inputsError, 'error-text4', 'Número de teléfono inválido');
+
     }else{
         
         inputsError['error-text4'].value = "";
-        correctionData(dataForm, 'phone');
+        dataForm['phone'].classList.add('good');
+
     }
+
     if (parseInt(dataForm['department'].value) || dataForm['department'].value.length > 25
         || dataForm['department'].value == ""){
         
         flag = false;
-        dataForm['department'].style.borderColor = "#D34638";
-        inputsError['error-text5'].value = "Departamento inválido";
-        inputsError['error-text5'].style.color = "#D34638";
-        dataForm['department'].onmouseout = () => {dataForm['department'].style.borderColor = "#D34638"};
-        dataForm['department'].onmouseenter = () => {dataForm['department'].style.borderColor = "#D34638"};
+
+        verificationClass('department', dataForm);
+        errorInput('department', dataForm, inputsError, 'error-text5', 'Departamento inválido')
 
     }else{
         
         inputsError['error-text5'].value = "";
-        correctionData(dataForm, 'department');
+        dataForm['department'].classList.add('good');
+
     }
+
     if (!parseInt(dataForm['age'].value) || dataForm['age'].value.length > 2 
         || dataForm['age'].value == ""){
         
         flag = false;
-        dataForm['age'].style.borderColor = "#D34638";
-        inputsError['error-text6'].value = "Edad inválida";
-        inputsError['error-text6'].style.color = "#D34638";
-        dataForm['age'].onmouseout = () => {dataForm['age'].style.borderColor = "#D34638"};
-        dataForm['age'].onmouseenter = () => {dataForm['age'].style.borderColor = "#D34638"};
+
+        verificationClass('age', dataForm);
+        errorInput('age', dataForm, inputsError, 'error-text6', 'Edad inválida');
 
     }else{
         
         inputsError['error-text6'].value = "";
-        correctionData(dataForm, 'age');
+        dataForm['age'].classList.add('good');
     }
+
     if (parseInt(dataForm['email'].value) || dataForm['email'].value == ""){
         
         flag = false;
-        dataForm['email'].style.borderColor = "#D34638";
-        inputsError['error-text7'].value = "Correo inválido";
-        inputsError['error-text7'].style.color = "#D34638";
-        dataForm['email'].onmouseout = () => {dataForm['email'].style.borderColor = "#D34638"};
-        dataForm['email'].onmouseenter = () => {dataForm['email'].style.borderColor = "#D34638"};
+
+        verificationClass('email', dataForm);
+        errorInput('email', dataForm, inputsError, 'error-text7', 'Correo inválido');
 
     }else{
         
         inputsError['error-text7'].value = "";
-        correctionData(dataForm, 'email');
+        dataForm['email'].classList.add('good');
 
     }
+
     if (dataForm['password'].value.length > 12 || dataForm['password'].value.length < 8
         || dataForm['password'].value == ""){
         
         flag = false;
-        dataForm['password'].style.borderColor = "#D34638";
-        inputsError['error-text8'].value = "Contraseña inválida";
-        inputsError['error-text8'].style.color = "#D34638";
-        dataForm['password'].onmouseout = () => {dataForm['password'].style.borderColor = "#D34638"};
-        dataForm['password'].onmouseenter = () => {dataForm['password'].style.borderColor = "#D34638"};
+        
+        verificationClass('password', dataForm);
+        errorInput('password', dataForm, inputsError, 'error-text8', 'Contraseña inválida');
 
     }else{
         
         inputsError['error-text8'].value = "";
-        correctionData(dataForm, 'password');
+        dataForm['password'].classList.add('good');
     }
 
     if (flag === false){
@@ -163,4 +161,6 @@ window.addEventListener('submit', (e) => {
         e.preventDefault();
     }
 
-});
+};
+
+window.addEventListener('submit', validationForm);
