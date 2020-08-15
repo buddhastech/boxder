@@ -14,7 +14,7 @@ class UserRegistration(models.Model):
     class Meta:
 
         db_table = "user_registration"
-        order_with_respect_to = "user_id"
+
 
 
 class UserModification(models.Model):
@@ -29,7 +29,7 @@ class UserModification(models.Model):
     class Meta: 
 
         db_table = "user_modification"
-        order_with_respect_to = "user_id"
+
 
 class IncomesAndExits(models.Model):
 
@@ -42,7 +42,7 @@ class IncomesAndExits(models.Model):
     class Meta:
 
         db_table = "incomes_and_exits"
-        order_with_respect_to = "user_id"
+
 
 
 class UnauthorizedIncome(models.Model):
@@ -54,7 +54,7 @@ class UnauthorizedIncome(models.Model):
     class Meta:
 
         db_table = "unauthorized_income"
-        order_with_respect_to = "user_id"
+
 
 
 class AssetModification(models.Model):
@@ -68,7 +68,7 @@ class AssetModification(models.Model):
     class Meta:
         
         db_table = "asset_modification"
-        order_with_respect_to = "asset_id"
+   
 
 
 class AssetSuspenssions(models.Model):
@@ -83,4 +83,4 @@ class AssetSuspenssions(models.Model):
     class Meta:
         
         db_table = "asset_suspenssions"
-        order_with_respect_to = "suspension_id"
+

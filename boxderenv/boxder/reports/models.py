@@ -17,4 +17,3 @@ class Reports(models.Model):
     class Meta:
 
         db_table = "reports"
-        order_with_respect_to = "report_id"

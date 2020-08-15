@@ -43,7 +43,7 @@ class Departments(models.Model):
     class Meta:
 
         db_table = "departments"
-        order_with_respect_to = "department_id"
+
 
 
 class Users(models.Model):
@@ -65,7 +65,6 @@ class Users(models.Model):
     class Meta:
 
         db_table = "users"
-        order_with_respect_to = "identification_card"
 
 
 class AccumulatedMoney(models.Model):
@@ -77,7 +76,7 @@ class AccumulatedMoney(models.Model):
     class Meta:
 
         db_table = "accumulated_money"
-        order_with_respect_to = "accumulated_id"
+
 
 
 class UserSuspensions(models.Model):
@@ -90,7 +89,7 @@ class UserSuspensions(models.Model):
     class Meta:
 
         db_table = "user_suspensions"
-        order_with_respect_to = "suspension_id"
+
 
 
 class Depreciations(models.Model):
@@ -104,7 +103,7 @@ class Depreciations(models.Model):
     class Meta:
 
         db_table = "depreciations"
-        order_with_respect_to = "depreciation_code"
+
 
 
 class UsersAssets(models.Model):
@@ -117,4 +116,3 @@ class UsersAssets(models.Model):
     class Meta:
 
         db_table = "users_assets"
-        order_with_respect_to = "id_user_asset"

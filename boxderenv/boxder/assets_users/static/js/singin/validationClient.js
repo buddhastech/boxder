@@ -19,14 +19,10 @@ function validationForm(e){
     let flag = true;
 
     let dataForm = {
-        'id': document.getElementById('identification_card'),
-        'name': document.getElementById('name'),
-        'surnames': document.getElementById('surnames'),
-        'phone': document.getElementById('phone'),
-        'department': document.getElementById('department'),
-        'age': document.getElementById('age'),
-        'email': document.getElementById('email'),
-        'password': document.getElementById('pass')
+        'id': document.getElementById('identification_card'),'name': document.getElementById('name'),
+        'surnames': document.getElementById('surnames'),'phone': document.getElementById('phone'),
+        'department': document.getElementById('department'),'age': document.getElementById('age'),
+        'email': document.getElementById('email'),'password': document.getElementById('pass')
     };
 
     let inputsError = {
@@ -40,8 +36,17 @@ function validationForm(e){
         'error-text8': document.getElementById('error-text8')
     };
     
+    let regex = {
+        'especialCharacters': /\*|\@|\#|\$|\%|\&|\?|\(|\)|\+|\-|\/|\\|\||\=|\¡|\¿|\'|\<|\>|\[|\]/, // carácteres especiales
+        'numbers': /[0-9]/, // números
+        'letters': /[a-zA-Z]/, // letras
+        'emailDomains': /.com|.es|.org|.net|.yahoo|.outlook|.pro|.edu|.gov|.tv|.info|.cc/,
+        'mayus': /[A-Z]/
+    }
+
     if (!parseInt(dataForm['id'].value) || dataForm['id'].value.length != 9 
-        && dataForm['id'].value != ""){
+        && dataForm['id'].value != "" || dataForm['id'].value.match(regex['letters'])
+        || dataForm['id'].value.match(regex['especialCharacters'])){
         
         flag = false;        
         verificationClass('id', dataForm);
@@ -55,7 +60,8 @@ function validationForm(e){
     }
 
     if (parseInt(dataForm['name'].value) || dataForm['name'].value.length > 15 
-        || dataForm['name'].value == ""){
+        || dataForm['name'].value == "" || dataForm['name'].value.match(regex['numbers']) 
+        || dataForm['name'].value.match(regex['especialCharacters'])){
         
         flag = false;
         
@@ -70,7 +76,8 @@ function validationForm(e){
     }
 
     if (parseInt(dataForm['surnames'].value) || dataForm['surnames'].value.length > 50
-        || dataForm['surnames'].value == ""){
+        || dataForm['surnames'].value == "" || dataForm['surnames'].value.match(regex['numbers']) 
+        || dataForm['surnames'].value.match(regex['especialCharacters'])){
 
         flag = false;
 
@@ -85,7 +92,8 @@ function validationForm(e){
     }
 
     if (!parseInt(dataForm['phone'].value) || dataForm['phone'].value.length != 8
-        || dataForm['phone'].value == ""){
+        || dataForm['phone'].value == "" || dataForm['phone'].value.match(regex['letters'])
+        || dataForm['phone'].value.match(regex['especialCharacters'])){
         
         flag = false;
         
@@ -100,7 +108,8 @@ function validationForm(e){
     }
 
     if (parseInt(dataForm['department'].value) || dataForm['department'].value.length > 25
-        || dataForm['department'].value == ""){
+        || dataForm['department'].value == "" || dataForm['department'].value.match(regex['numbers'])
+        || dataForm['department'].value.match(regex['especialCharacters'])){
         
         flag = false;
 
@@ -115,7 +124,8 @@ function validationForm(e){
     }
 
     if (!parseInt(dataForm['age'].value) || dataForm['age'].value.length > 2 
-        || dataForm['age'].value == ""){
+        || dataForm['age'].value == "" || dataForm['age'].value.match(regex['letters'])
+        || dataForm['age'].value.match(regex['especialCharacters'])){
         
         flag = false;
 
@@ -128,7 +138,9 @@ function validationForm(e){
         dataForm['age'].classList.add('good');
     }
 
-    if (parseInt(dataForm['email'].value) || dataForm['email'].value == ""){
+    if (parseInt(dataForm['email'].value) || dataForm['email'].value == "" 
+    || !dataForm['email'].value.match(/\@/) 
+    || !dataForm['email'].value.match(regex['emailDomains'])){
         
         flag = false;
 
@@ -143,7 +155,7 @@ function validationForm(e){
     }
 
     if (dataForm['password'].value.length > 12 || dataForm['password'].value.length < 8
-        || dataForm['password'].value == ""){
+        || dataForm['password'].value == "" || !dataForm['password'].value.match(regex['mayus'])){
         
         flag = false;
         
