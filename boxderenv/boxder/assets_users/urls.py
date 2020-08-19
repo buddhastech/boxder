@@ -1,8 +1,9 @@
 from django.urls import path
-from .views import registration_form, user_register, user_login
+from .views import registration_form, user_register, user_login, boxder_index
 
 urlpatterns = [
     path('registration/', registration_form, name="register"),
     path('regist/', user_register, name="regist"),
-    path('login/', user_login, name="login")
+    path('login/', user_login, name="login"),
+    path('boxder/', boxder_index, name="boxder"),
 ]

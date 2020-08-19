@@ -1,6 +1,8 @@
 import re
 from django.shortcuts import render, redirect
 from django.db.utils import DatabaseError, OperationalError, ProgrammingError
+from django.contrib.sessions.models import Session
+
 
 from assets_users.models import Assets
 from assets_users.models import Departments
@@ -8,7 +10,7 @@ from .local_modules.validations import validate_data
 from .local_modules.hashing import hashing_password, compare_password
 from .local_modules.registration_users import registration 
 from .local_modules.department_list import department_list
-from .local_modules.login_user import login, get_password
+from .local_modules.login_user import login, get_password, get_data_user, set_sessions_user
 from .local_modules.database_exceptions import exception_db_response
  
 
@@ -83,7 +85,11 @@ def user_login(request):
 
             # compara si las contraseñas son iguales
             if compare_password(post_data['password'], password_user):
-                return render(request, 'index.html', context)
+                
+                data_user = get_data_user(object_request)                
+                user_sessions = set_sessions_user(request, data_user)
+
+                return redirect('/boxder/')
 
             else:
                 context['response'] = '1'
@@ -98,3 +104,13 @@ def registration_form(request):
 
     context = {'departments': department_list()}
     return render(request, 'registration.html', context)
+
+def boxder_index(request):
+    
+    try:
+        request.session['name']
+        request.session['surnames']
+        return render(request, 'boxderindex.html')
+    
+    except KeyError as e:
+        return redirect('/inicio/')
