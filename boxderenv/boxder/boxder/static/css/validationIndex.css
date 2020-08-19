@@ -1,0 +1,6 @@
+#formulario form #identification_card.warning, #password.warning{
+    border-color:#D34638;
+}
+#formulario form #error-text1.warning, #error-text2.warning{
+    color: #D34638;
+}

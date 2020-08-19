@@ -17,7 +17,7 @@ main div div form{
 main div div form label{
     color:#333333;
 }
-main div div form input{
+main div div form #identification_card, #password{
     padding-left:40px;
     padding-top:10px;
     padding-bottom:10px;
@@ -30,6 +30,12 @@ main div div form input{
     columns: #333333;
 
 }
+
+main div div form #error-text1, #error-text2{
+
+    border:none;
+}
+
 main div div form #card{
     position: absolute;
     top:298px;
@@ -43,9 +49,6 @@ main div div form #pass{
     left:67px;
     font-size: 20px;
     color:gray;
-}
-main div div form #identification_card{
-    margin-bottom:20px;
 }
 
 main div div form input:hover{

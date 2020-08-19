@@ -37,10 +37,15 @@ function validationForm(e){
     };
     
     let regex = {
-        'especialCharacters': /\*|\@|\#|\$|\%|\&|\?|\(|\)|\+|\-|\/|\\|\||\=|\¡|\¿|\'|\<|\>|\[|\]/, // carácteres especiales
-        'numbers': /[0-9]/, // números
-        'letters': /[a-zA-Z]/, // letras
+        // carácteres especiales
+        'especialCharacters': /\*|\@|\#|\$|\%|\&|\?|\(|\)|\+|\-|\/|\\|\||\=|\¡|\¿|\'|\<|\>|\[|\]/, 
+        // números
+        'numbers': /[0-9]/,
+        // letras 
+        'letters': /[a-zA-Z]/,
+        // Dominios de correo 
         'emailDomains': /.com|.es|.org|.net|.yahoo|.outlook|.pro|.edu|.gov|.tv|.info|.cc/,
+        // Letras mayúsculas
         'mayus': /[A-Z]/
     }
 
@@ -154,7 +159,7 @@ function validationForm(e){
 
     }
 
-    if (dataForm['password'].value.length > 12 || dataForm['password'].value.length < 8
+    if (dataForm['password'].value.length < 8
         || dataForm['password'].value == "" || !dataForm['password'].value.match(regex['mayus'])){
         
         flag = false;

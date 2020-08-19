@@ -26,6 +26,14 @@ function dataFromServer(data){
             title: 'Error interno',
             text: 'Algunos datos ya existen y no pueden usarse',
           });
-    }
+
+    // Error de servidor      
+    }else if(data == '3' || data == '4' || data == '5'){  
+    Swal.fire({
+        icon: 'error',
+        title: 'Error interno',
+        text: 'Ha ocurrido un error de servidor',
+      });
+}
 
 };

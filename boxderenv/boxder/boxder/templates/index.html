@@ -7,6 +7,7 @@
 
 {% block head %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/validationIndex.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -22,11 +23,13 @@
 
                     <i class="fas fa-id-card" id="card"></i>
                         <input type="text" name="identification_card" placeholder="Cedula" id="identification_card" autocomplete="off">
-                    
+                        <input type="text" id="error-text1" disabled> 
+
                     <i class="fas fa-key" id="pass"></i>
                         <input type="password" name="password" placeholder="Contraseña" id="password">
+                        <input type="text" id="error-text2" disabled> 
                     
-                    <div id="buttons">
+                        <div id="buttons">
                         <button type="submit" id="submit-button">Iniciar sesión</button>
                         <a href="{% url 'register' %}"><button id="register" type=button>Registrarse</button></a>
                     </div>
@@ -35,7 +38,14 @@
             </div>
         </div>
     </main>
+    
 <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/validationClient.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/validationServer.js' %}"></script>
 
+{% if response %}
+    <script type="text/javascript">
+        dataFromServer('{{ response }}')
+    </script>
+{% endif %}
 {% endblock %}
