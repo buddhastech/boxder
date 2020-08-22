@@ -1,7 +1,8 @@
 import re
 from django.shortcuts import render, redirect
 from django.db.utils import DatabaseError, OperationalError, ProgrammingError
-from django.contrib.sessions.models import Session
+from django.core.cache import cache
+from django.http import HttpResponseRedirect
 
 
 from assets_users.models import Assets
@@ -26,6 +27,7 @@ def user_register(request):
                 'phone':request.POST['phone'],'department':request.POST['department'],
                 'age':request.POST['age'],'email':request.POST['email'].replace(".com", ".oo")
             }
+
             password_hash = hashing_password(request.POST["password"]) 
 
             if validate_data(post_data):  
@@ -42,26 +44,18 @@ def user_register(request):
                 context['departments'] = department_list()
                 context['data'] = post_data
                 return render(request, 'registration.html', context)
-    
-    # sucede cuando se genera un error relacionado
-    # con la base de datos
     except DatabaseError as e:
 
                 exception_db_response(
                 '3', 
                 department_list(), 
                 render(request, 'registration.html', context))
-            
-    # sucede cuando se ha generado un problema
-    # en medio de la ejecución, ejemplo: corte de luz
     except OperationalError as e:
 
                 exception_db_response(
                 '4', 
                 department_list(), 
                 render(request, 'registration.html', context))
-    # suecede cuando ocurre 
-    # un problema de programación, por ejemplo, repetición de tablas
     except ProgrammingError as e:
 
                 exception_db_response(
@@ -78,23 +72,20 @@ def user_login(request):
             post_data = {'identification_card': request.POST['identification_card'],
                         'password': request.POST['password']}
 
-            # obtiene el objeto encontrado
             object_request = login(post_data['identification_card'])
-            # obtiene la contraseña  
+  
             password_user = get_password(object_request) 
 
-            # compara si las contraseñas son iguales
             if compare_password(post_data['password'], password_user):
                 
                 data_user = get_data_user(object_request)                
-                user_sessions = set_sessions_user(request, data_user)
-
+                set_sessions_user(request, data_user)
+                
                 return redirect('/boxder/')
 
             else:
                 context['response'] = '1'
                 return render(request, 'index.html', context)
-        
         except:
             context['response'] = '0'
             return render(request, "index.html", context)
@@ -106,11 +97,11 @@ def registration_form(request):
     return render(request, 'registration.html', context)
 
 def boxder_index(request):
-    
-    try:
-        request.session['name']
-        request.session['surnames']
-        return render(request, 'boxderindex.html')
-    
+
+    try: 
+        if request.session['name'] or request.session['surnames']:
+            return render(request, 'boxderindex.html')
+
     except KeyError as e:
         return redirect('/inicio/')
+  

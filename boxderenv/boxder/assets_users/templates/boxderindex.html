@@ -11,7 +11,12 @@
 
 {% block content %}
     <h1>hello</h1>
-    <p>{{ request.session.name }}</p>
-    <p>{{ request.session.surnames }}</p>
+
+    {% if request.session.name %}
+        <p>{{ request.session.name }}</p>
+        <p>{{ request.session.surnames }}</p>
+    {% else %}
+        <p>No have</p>
+    {% endif %}
 
 {% endblock %}
