@@ -2,7 +2,6 @@ import re
 from django.shortcuts import render, redirect
 from django.db.utils import DatabaseError, OperationalError, ProgrammingError
 from django.core.cache import cache
-from django.http import HttpResponseRedirect
 
 
 from assets_users.models import Assets
@@ -67,28 +66,32 @@ def user_login(request):
 
     context = {}
     if request.method == 'POST':
-
-        try:
-            post_data = {'identification_card': request.POST['identification_card'],
+            
+        post_data = {'identification_card': request.POST['identification_card'],
                         'password': request.POST['password']}
 
-            object_request = login(post_data['identification_card'])
-  
-            password_user = get_password(object_request) 
+        object_request = login(post_data['identification_card'])
+        password_user = get_password(object_request) 
 
-            if compare_password(post_data['password'], password_user):
+        if object_request and password_user: # si ha encontrado algo con dicha cedula
+            
+                if compare_password(post_data['password'], password_user):
+                    try:
+                        data_user = get_data_user(object_request)                
+                        set_sessions_user(request, data_user)
                 
-                data_user = get_data_user(object_request)                
-                set_sessions_user(request, data_user)
-                
-                return redirect('/boxder/')
+                        return redirect('/boxder/')
+                    
+                    except:
+                        context['response'] = '0'
+                        return render(request, 'index.html', context)
+                else:
+                    context['response'] = '1'
+                    return render(request, 'index.html', context)
 
-            else:
-                context['response'] = '1'
-                return render(request, 'index.html', context)
-        except:
-            context['response'] = '0'
-            return render(request, "index.html", context)
+        else:
+            context['response'] = '1'
+            return render(request, 'index.html', context)
 
 # vista para formulario
 def registration_form(request):
@@ -100,8 +103,7 @@ def boxder_index(request):
 
     try: 
         if request.session['name'] or request.session['surnames']:
-            return render(request, 'boxderindex.html')
-
+                return render(request, 'boxderindex.html')
     except KeyError as e:
         return redirect('/inicio/')
   

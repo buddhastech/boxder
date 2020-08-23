@@ -14,11 +14,14 @@ def get_password(user):
 
     password_user = ""
     if user:
-        for data in user:
-            password_user = data.password
-    
-    return password_user
-
+        try:
+            for data in user:
+                password_user = data.password
+            return password_user
+            
+        except ValueError as e:
+            return 0
+        
 def get_data_user(user):
     
     data_user = {}

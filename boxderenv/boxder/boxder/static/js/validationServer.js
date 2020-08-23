@@ -8,7 +8,7 @@ function dataFromServer(data){
             text: 'Ha ocurrido un error de servidor',
           });
 
-    // Error de integridad de datos
+    
     }else if(data == '1'){  
         Swal.fire({
             icon: 'error',

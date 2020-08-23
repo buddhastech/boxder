@@ -20,6 +20,7 @@ def compare_password(new_password, password):
                 if bcrypt.checkpw(new_password, password):
                         return 1
                 else:
+                        print("error")
                         return 0
         except TypeError as e:
                 print("Error de chequeo: ", e)

@@ -166,7 +166,7 @@ form{
 #form-regist.active{
     animation-name: formEffect;
     animation-duration: 1.5s;
-}
+}    alert(colorPicker.value);
 #back-button.active{
     opacity:0;
     animation-name: infoEffect;
