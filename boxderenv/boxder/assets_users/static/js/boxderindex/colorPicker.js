@@ -1,6 +1,11 @@
 let colorPicker = document.getElementById('colorpicker');
 let letterName = document.getElementById('letterName');
 
-colorPicker.addEventListener('change', (e) => {
-    letterName.style.backgroundColor = colorPicker.value;
+window.addEventListener('load', () => {
+    letterName.style.backgroundColor = localStorage.getItem('color')
+});
+
+colorPicker.addEventListener('change', () => {
+    window.localStorage.setItem('color', colorPicker.value);
+    letterName.style.backgroundColor = localStorage.getItem('color');
 });
