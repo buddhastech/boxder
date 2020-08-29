@@ -11490,7 +11490,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+			"sInfo": "<button class='btn btn-primary'>Nuevo usuario <i class='fas fa-plus'></i></button>",
 	
 	
 			/**

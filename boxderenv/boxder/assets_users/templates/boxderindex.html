@@ -4,18 +4,24 @@
   BOXDER
 {% endblock %}
 {% block head %}
+  <!-- web dependencies -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+
+  <!-- Local style dependencies -->
   <link rel="stylesheet" href="{% static 'css/boxderIndex.css' %}">
   <script src="{% static 'lib/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
   <link rel="stylesheet" href="{% static 'lib/css/adminlte.min.css' %}">
   <link rel="stylesheet" href="{% static 'lib/datatables/css/dataTables.bootstrap4.min.css' %}"/>
   <link rel="stylesheet" href="{% static 'lib/datatables/plugins/responsive-2.2.3/css/responsive.bootstrap4.min.css' %}"/>
   <link rel="stylesheet" href="{% static 'lib/plugins/fontawesome5/css/all.min.css' %}">
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  <!-- Local script dependencies -->
   <script src="{% static 'lib/datatables/js/jquery.dataTables.js' %}"></script>
   <script src="{% static 'lib/datatables/js/dataTables.bootstrap4.min.js' %}"></script>
   <script src="{% static 'lib/datatables/plugins/responsive-2.2.3/js/dataTables.responsive.min.js' %}"></script>
   <script src="{% static 'lib/datatables/plugins/responsive-2.2.3/js/responsive.bootstrap4.min.js' %}"></script>
+  <script src="{% static 'js/boxderindex/node_modules/chart.js/dist/Chart.min.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -178,436 +184,12 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Charts
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../charts/chartjs.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>ChartJS</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../charts/flot.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Flot</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../charts/inline.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inline</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tree"></i>
-              <p>
-                UI Elements
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../UI/general.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>General</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../UI/icons.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Icons</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../UI/buttons.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Buttons</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../UI/sliders.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sliders</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../UI/modals.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Modals & Alerts</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../UI/navbar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Navbar & Tabs</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../UI/timeline.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Timeline</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../UI/ribbons.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Ribbons</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Forms
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../forms/general.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>General Elements</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../forms/advanced.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Advanced Elements</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../forms/editors.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Editors</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../forms/validation.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Validation</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Tables
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../tables/simple.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Simple Tables</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../tables/data.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>DataTables</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../tables/jsgrid.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>jsGrid</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-header">EXAMPLES</li>
-          <li class="nav-item">
-            <a href="../calendar.html" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
-              <p>
-                Calendar
-                <span class="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="../gallery.html" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Gallery
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-envelope"></i>
-              <p>
-                Mailbox
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../mailbox/mailbox.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inbox</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../mailbox/compose.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Compose</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../mailbox/read-mail.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Read</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Pages
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../examples/invoice.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Invoice</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/profile.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Profile</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/e-commerce.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>E-commerce</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/projects.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Projects</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/project-add.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Add</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/project-edit.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Edit</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/project-detail.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Detail</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/contacts.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Contacts</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-plus-square"></i>
-              <p>
-                Extras
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../examples/login.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Login</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/register.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Register</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/forgot-password.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Forgot Password</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/recover-password.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Recover Password</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/lockscreen.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Lockscreen</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/legacy-user-menu.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Legacy User Menu</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/language-menu.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Language Menu</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/404.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Error 404</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/500.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Error 500</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/pace.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pace</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/blank.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Blank Page</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../starter.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Starter Page</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-header">MISCELLANEOUS</li>
-          <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.0" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Documentation</p>
-            </a>
-          </li>
-          <li class="nav-header">MULTI LEVEL EXAMPLE</li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="fas fa-circle nav-icon"></i>
-              <p>Level 1</p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-circle"></i>
+              <i class="far fa-building"></i>
               <p>
-                Level 1
-                <i class="right fas fa-angle-left"></i>
+                &nbsp;Departamentos
               </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Level 2</p>
-                </a>
-              </li>
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>
-                    Level 2
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Level 3</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Level 3</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Level 3</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Level 2</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="fas fa-circle nav-icon"></i>
-              <p>Level 1</p>
-            </a>
-          </li>
-          <li class="nav-header">LABELS</li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-circle text-danger"></i>
-              <p class="text">Important</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-circle text-warning"></i>
-              <p>Warning</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-circle text-info"></i>
-              <p>Informational</p>
             </a>
           </li>
         </ul>
@@ -621,44 +203,33 @@
     
     <article id="first-section">
         <div id="total-assets">
-          <div>
-            <div id="text-target">Total</div>
+          <div id="icon-target"><i class="fas fa-boxes"></i></div>
+          <div id="info">
+            <div id="text-target">Total Activos</div>
             <div id="data-target">20</div>
           </div>
-          <div id="icon-target"><i class="fas fa-boxes"></i></div>
         </div>
         <div id="functionally-assets">
-          <div>
+          <div id="icon-target"><i class="fas fa-check"></i></div>
+          <div id="info">
             <div id="text-target">Funcionando</div>
             <div id="data-target">6</div>
           </div>
-          <div id="icon-target"><i class="fas fa-check"></i></div>
         </div>
         <div id="low-assets">
-          <div>
+          <div id="icon-target"><i class="fas fa-skull-crossbones"></i></div>
+          <div id="info">
             <div id="text-target">De baja</div>
             <div id="data-target">10</div>
           </div>
-          <div id="icon-target"><i class="fas fa-skull-crossbones"></i></div>
         </div>
-    </article>
-
-    <article id="second-section">
-      <div id="suspended-assets">
-        <div>
-          <div id="text-target">Suspendidos</div>
-          <div id="data-target">2</div>
+        <div id="suspended-assets">
+          <div id="icon-target"><i class="fas fa-toolbox"></i></div>
+          <div id="info">
+            <div id="text-target">Suspendidos</div>
+            <div id="data-target">2</div>
+          </div>
         </div>
-        <div id="icon-target"><i class="fas fa-toolbox"></i></div>
-      </div>
-      <div id="total-cost">
-        <div>
-          <div id="text-target">Inversión</div>
-          <div id="data-target">$400</div>
-        </div>
-        <div id="icon-target"><i class="fas fa-dollar-sign"></i></div>
-      </div>
-    
     </article>
   </section>
 
@@ -668,14 +239,18 @@
     <div class="row">
       <div class="col-sm-12">
         <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info">
-
+          <div id="buttons-action">
+            <button id="excel-button"><i class="far fa-file-excel"></i></button>
+            <button id="pdf-button"><i class="far fa-file-pdf"></i></button>  
+          </div>
           <thead>
         <tr role="row">
-          <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Rendering engine</th>
-          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Browser</th>
-          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Platform(s)</th>
-          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Engine version</th>
-          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">CSS grade</th>
+          <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Código</th>
+          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Marca</th>
+          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Modelo</th>
+          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Costo</th>
+          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Fecha ingreeso</th>
+          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Estado actual</th>
         </tr>
         </thead>
 
@@ -686,140 +261,136 @@
           <td>Win 98+ / OSX.2+</td>
           <td>1.7</td>
           <td>A</td>
-        </tr>
-        <tr role="row" class="odd">
-          <td tabindex="0" class="sorting_1">Gecko</td>
-          <td>Firefox 1.0</td>
-          <td>Win 98+ / OSX.2+</td>
-          <td>1.7</td>
-          <td>A</td>
-        </tr>
-        <tr role="row" class="odd">
-          <td tabindex="0" class="sorting_1">Gecko</td>
-          <td>Firefox 1.0</td>
-          <td>Win 98+ / OSX.2+</td>
-          <td>1.7</td>
-          <td>A</td>
-        </tr>
-        <tr role="row" class="odd">
-          <td tabindex="0" class="sorting_1">Gecko</td>
-          <td>Firefox 1.0</td>
-          <td>Win 98+ / OSX.2+</td>
-          <td>1.7</td>
-          <td>A</td>
-        </tr>
-        <tr role="row" class="odd">
-          <td tabindex="0" class="sorting_1">Gecko</td>
-          <td>Firefox 1.0</td>
-          <td>Win 98+ / OSX.2+</td>
-          <td>1.7</td>
-          <td>A</td>
-        </tr>
-        <tr role="row" class="odd">
-          <td tabindex="0" class="sorting_1">Gecko</td>
-          <td>Firefox 1.0</td>
-          <td>Win 98+ / OSX.2+</td>
-          <td>1.7</td>
-          <td>A</td>
-        </tr>
-        <tr role="row" class="odd">
-          <td tabindex="0" class="sorting_1">Gecko</td>
-          <td>Firefox 1.0</td>
-          <td>Win 98+ / OSX.2+</td>
-          <td>1.7</td>
-          <td>A</td>
-        </tr>
-        <tr role="row" class="odd">
-          <td tabindex="0" class="sorting_1">Gecko</td>
-          <td>Firefox 1.0</td>
-          <td>Win 98+ / OSX.2+</td>
-          <td>1.7</td>
-          <td>A</td>
-        </tr>
-
-        <tr role="row" class="even">
-          <td tabindex="0" class="sorting_1">Gecko</td>
-          <td>Firefox 1.5</td>
-          <td>Win 98+ / OSX.2+</td>
-          <td>1.8</td>
-          <td>A</td>
-        </tr><tr role="row" class="odd">
-          <td tabindex="0" class="sorting_1">Gecko</td>
-          <td>Firefox 2.0</td>
-          <td>Win 98+ / OSX.2+</td>
-          <td>1.8</td>
-          <td>A</td>
-        </tr><tr role="row" class="even">
-          <td tabindex="0" class="sorting_1">Gecko</td>
-          <td>Firefox 3.0</td>
-          <td>Win 2k+ / OSX.3+</td>
-          <td>1.9</td>
-          <td>A</td>
-        </tr><tr role="row" class="odd">
-          <td class="sorting_1" tabindex="0">Gecko</td>
-          <td>Camino 1.0</td>
-          <td>OSX.2+</td>
-          <td>1.8</td>
-          <td>A</td>
-        </tr><tr role="row" class="even">
-          <td class="sorting_1" tabindex="0">Gecko</td>
-          <td>Camino 1.5</td>
-          <td>OSX.3+</td>
-          <td>1.8</td>
-          <td>A</td>
-        </tr><tr role="row" class="odd">
-          <td class="sorting_1" tabindex="0">Gecko</td>
-          <td>Netscape 7.2</td>
-          <td>Win 95+ / Mac OS 8.6-9.2</td>
-          <td>1.7</td>
-          <td>A</td>
-        </tr><tr role="row" class="even">
-          <td class="sorting_1" tabindex="0">Gecko</td>
-          <td>Netscape Browser 8</td>
-          <td>Win 98SE+</td>
-          <td>1.7</td>
-          <td>A</td>
-        </tr><tr role="row" class="odd">
-          <td class="sorting_1" tabindex="0">Gecko</td>
-          <td>Netscape Navigator 9</td>
-          <td>Win 98+ / OSX.2+</td>
-          <td>1.8</td>
-          <td>A</td>
-        </tr><tr role="row" class="even">
-          <td class="sorting_1" tabindex="0">Gecko</td>
-          <td>Mozilla 1.0</td>
-          <td>Win 95+ / OSX.1+</td>
           <td>1</td>
-          <td>A</td>
         </tr>
-      </tr><tr role="row" class="even">
-        <td class="sorting_1" tabindex="0">Gecko</td>
-        <td>Mozilla 1.0</td>
-        <td>Win 95+ / OSX.1+</td>
-        <td>1</td>
-        <td>A</td>
-      </tr>
-    </tr><tr role="row" class="even">
-      <td class="sorting_1" tabindex="0">Gecko</td>
-      <td>Mozilla 1.0</td>
-      <td>Win 95+ / OSX.1+</td>
-      <td>1</td>
-      <td>A</td>
-    </tr>
-  </tr><tr role="row" class="even">
-    <td class="sorting_1" tabindex="0">Gecko</td>
-    <td>Mozilla 1.0</td>
-    <td>Win 95+ / OSX.1+</td>
-    <td>1</td>
-    <td>A</td>
-  </tr>
-      </tbody>
+        <tr role="row" class="odd">
+          <td tabindex="0" class="sorting_1">Gecko</td>
+          <td>Firefox 1.0</td>
+          <td>Win 98+ / OSX.2+</td>
+          <td>1.7</td>
+          <td>A</td>
+          <td>1</td>
+        </tr>
+        <tr role="row" class="odd">
+          <td tabindex="0" class="sorting_1">Gecko</td>
+          <td>Firefox 1.0</td>
+          <td>Win 98+ / OSX.2+</td>
+          <td>1.7</td>
+          <td>A</td>
+          <td>1</td>
+        </tr>
+        <tr role="row" class="odd">
+          <td tabindex="0" class="sorting_1">Gecko</td>
+          <td>Firefox 1.0</td>
+          <td>Win 98+ / OSX.2+</td>
+          <td>1.7</td>
+          <td>A</td>
+          <td>1</td>
+        </tr>
+        <tr role="row" class="odd">
+          <td tabindex="0" class="sorting_1">Gecko</td>
+          <td>Firefox 1.0</td>
+          <td>Win 98+ / OSX.2+</td>
+          <td>1.7</td>
+          <td>A</td>
+          <td>1</td>
+        </tr>
+        <tr role="row" class="odd">
+          <td tabindex="0" class="sorting_1">Gecko</td>
+          <td>Firefox 1.0</td>
+          <td>Win 98+ / OSX.2+</td>
+          <td>1.7</td>
+          <td>A</td>
+          <td>1</td>
+        </tr>
+        <tr role="row" class="odd">
+          <td tabindex="0" class="sorting_1">Gecko</td>
+          <td>Firefox 1.0</td>
+          <td>Win 98+ / OSX.2+</td>
+          <td>1.7</td>
+          <td>A</td>
+          <td>1</td>
+        </tr>
+        <tr role="row" class="odd">
+          <td tabindex="0" class="sorting_1">Gecko</td>
+          <td>Firefox 1.0</td>
+          <td>Win 98+ / OSX.2+</td>
+          <td>1.7</td>
+          <td>A</td>
+          <td>1</td>
+        </tr>
+        <tr role="row" class="odd">
+          <td tabindex="0" class="sorting_1">Gecko</td>
+          <td>Firefox 1.0</td>
+          <td>Win 98+ / OSX.2+</td>
+          <td>1.7</td>
+          <td>A</td>
+          <td>1</td>
+        </tr>
+        <tr role="row" class="odd">
+          <td tabindex="0" class="sorting_1">Gecko</td>
+          <td>Firefox 1.0</td>
+          <td>Win 98+ / OSX.2+</td>
+          <td>1.7</td>
+          <td>A</td>
+          <td>1</td>
+        </tr>
+        <tr role="row" class="odd">
+          <td tabindex="0" class="sorting_1">Gecko</td>
+          <td>Firefox 1.0</td>
+          <td>Win 98+ / OSX.2+</td>
+          <td>1.7</td>
+          <td>A</td>
+          <td>1</td>
+        </tr>
+        <tr role="row" class="odd">
+          <td tabindex="0" class="sorting_1">Gecko</td>
+          <td>Firefox 1.0</td>
+          <td>Win 98+ / OSX.2+</td>
+          <td>1.7</td>
+          <td>A</td>
+          <td>1</td>
+        </tr>
+        <tr role="row" class="odd">
+          <td tabindex="0" class="sorting_1">Gecko</td>
+          <td>Firefox 1.0</td>
+          <td>Win 98+ / OSX.2+</td>
+          <td>1.7</td>
+          <td>A</td>
+          <td>1</td>
+        </tr>
+        <tr role="row" class="odd">
+          <td tabindex="0" class="sorting_1">Gecko</td>
+          <td>Firefox 1.0</td>
+          <td>Win 98+ / OSX.2+</td>
+          <td>1.8</td>
+          <td>A</td>
+          <td>1</td>
+        </tr>
 
+
+      </tbody>
+      <!--
+        El botón que se encuentra debajo del table
+        para agregar nuevos activos se encuentra en la siguiente dirección:
+        lib/datatables/js/jquery.dataTables.js en la linea 11493
+        por motivos de comodidad
+      -->
       </table>
     </div>
     <!-- /.card-body -->
   </div>
-
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <canvas id="status-chart"></canvas>
+      </div>
+      <div class="col-sm-6">
+        <canvas id="price-assets"></canvas>
+      </div>
+    </div>
+  </div>
+ 
 
 <script type="text/javascript">
   $('#example1').DataTable({
@@ -827,6 +398,9 @@
                     autoWidth: false
                 });
 </script>
-<script type="text/javascript" src="{% static 'js/boxderindex/boxder.js' %}"></script>
 
+
+
+<script type="text/javascript" src="{% static 'js/boxderindex/boxder.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/boxderindex/charts.js' %}"></script>
   {% endblock %}
