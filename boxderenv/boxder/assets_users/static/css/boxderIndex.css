@@ -65,3 +65,89 @@ section #first-section{
     left:210px;
     z-index:1;
 }
+#charts h5{
+    text-align: center;
+    margin-bottom:20px;
+}
+#charts{
+    margin:80px;
+}
+#header-dep{
+    margin-top:20px;
+
+    background-color: #1286EE;
+    padding:15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color:white;
+    text-align:center;
+}
+
+#mayorCero{
+    padding:7px;
+    width:10px;
+    height:10px;
+    border-radius:100%;
+    background-color: rgba(79, 168, 249, 0.8);
+    margin-left:40px;
+    border: 3px solid #1286EE;
+}
+#menorCero{
+    padding:7px;
+    width:10px;
+    height:10px;
+    border-radius:100%;
+    background-color: rgba(234, 86, 84 , 0.8);
+    margin-left:40px;
+    border: 3px solid #AC2624;
+}
+
+#data-assets #card .row{
+    text-align:center;
+    margin:20px;    
+}
+
+#data-assets{
+    overflow-y:scroll;
+    height: 300px;
+}
+#card{
+    height: auto;
+}
+
+#good-tag, #bad-tag{
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:30px;
+    padding-right:30px;
+    border-radius:5px;
+
+}
+
+#indications h6{
+    font-weight: bold;
+}
+
+#good-tag{
+    border: 3px solid #1286EE;
+    background-color: rgba(79, 168, 249, 0.8);
+}
+
+#bad-tag{
+    border: 3px solid #AC2624;
+    background-color: rgba(234, 86, 84 , 0.8);
+}
+
+#indications{
+    display:flex;
+    margin:5px;
+}
+
+#depreciations{
+    margin-top:80px;
+    margin-bottom:40px;
+}
+#data-assets #card .row{
+    border-bottom: 1px solid lightgray;
+    padding:20px;
+}

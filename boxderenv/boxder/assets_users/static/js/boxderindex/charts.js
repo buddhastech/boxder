@@ -17,22 +17,25 @@ let statusChart  = new Chart(statusCtx, {
         }
     });
 
-    let priceCtx = document.getElementById('price-assets').getContext('2d');
+    let priceCtx = document.getElementById('price-chart').getContext('2d');
 
     let chartPrice  = new Chart(priceCtx, {
         type:"bar",
         data:{
-            labels: ['Activo', 'Suspendido', 'De baja', "e", "e"],
+            labels: ['Enero', 'Febrero', 'Marzo', "Abril", "Mayo", "Junio"],
             datasets:[{
                 label: 'Activos',
-                data: [6, 10, 2, 44, 72],
+                data: [850, 3055, 7500, 2500, 29500, 754],
                 backgroundColor:[
-                    "rgba(57, 127, 50, 0.9)",
-                    "rgba(255, 213, 0, 0.9)",
-                    "rgba(172, 38, 36, 0.9)",
-                    "rgba(172, 38, 36, 0.9)",
-                    "rgba(172, 38, 36, 0.9)"
+                    "rgba(246, 160, 115, 0.9)",
+                    "rgba(50, 216, 14, 0.9)",
+                    "rgba(36, 172, 135, 0.9)",
+                    "rgba(36, 112, 172, 0.9)",
+                    "rgba(90, 36, 172, 0.9)",
+                    "rgba(216, 197, 14, 0.9)"
                     ]
                 }]
             }
         });
+
+        
