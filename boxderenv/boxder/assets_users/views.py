@@ -1,11 +1,14 @@
+# intern modules
 import re
+# django modules
 from django.shortcuts import render, redirect
 from django.db.utils import DatabaseError, OperationalError, ProgrammingError
 from django.core.cache import cache
 
-
+# models
 from assets_users.models import Assets
 from assets_users.models import Departments
+# local modules
 from .local_modules.validations import validate_data
 from .local_modules.hashing import hashing_password, compare_password
 from .local_modules.registration_users import registration 
@@ -62,6 +65,7 @@ def user_register(request):
                 department_list(), 
                 render(request, 'registration.html', context))
 
+# vista para validar usuario
 def user_login(request):
 
     context = {}
@@ -86,6 +90,7 @@ def user_login(request):
                         context['response'] = '0'
                         return render(request, 'index.html', context)
                 else:
+                    print("hello")
                     context['response'] = '1'
                     return render(request, 'index.html', context)
 
@@ -99,6 +104,7 @@ def registration_form(request):
     context = {'departments': department_list()}
     return render(request, 'registration.html', context)
 
+# vista para página principal de la app
 def boxder_index(request):
 
     try: 

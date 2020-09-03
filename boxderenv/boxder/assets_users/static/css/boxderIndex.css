@@ -2,7 +2,7 @@ section #first-section{
     display:flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 80px;
     margin-bottom:40px;
 }
 #total-assets, #functionally-assets, #low-assets, #suspended-assets{
@@ -150,4 +150,118 @@ section #first-section{
 #data-assets #card .row{
     border-bottom: 1px solid lightgray;
     padding:20px;
+}
+
+
+/*POPUP*/
+#overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    z-index: 0;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+
+#close-popup {
+    margin:540px;
+    color: lightgray;
+}
+
+#close-popup:hover{
+    color: #333333;
+}
+
+#overlay.active{
+    z-index: 4;
+    visibility: visible;
+
+}
+
+#popup{
+    background-color:white;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+    padding:20px;
+    width: 600px;
+    opacity: 0;
+    border-radius: 5px;
+    transform: scale(0.7);
+    transition: ease-in 0.2s;
+
+}
+
+#popup.active{
+    transition: ease-in 0.2s;
+    opacity: 1;
+    transform: scale(1);
+}
+#popup h3{
+    text-align: center;
+}
+#popup form{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+}
+
+#inputs-1 {
+    display:flex;
+    margin:5px;
+}
+
+#inputs-2 {
+    display:flex;
+    margin:5px;
+}
+
+#inputs-3 {
+    display:flex;
+}
+#elements {
+    margin:10px;
+}
+#provider{
+    margin-bottom:10px;
+}
+
+#inputs-1 input, #inputs-2 input, #inputs-3 input{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding:10px;
+}
+
+#inputs-1 label, #inputs-2 label, #inputs-3 label{
+    color: #333333;
+}
+
+#buttons #send {
+    border:none;
+    background-color: #397F32;
+    color:white;
+    padding-left:15px;
+    padding-right:15px;
+    padding-bottom:10px;
+    padding-top:10px;
+    border-radius:3px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+#buttons #reset {
+    border:none;
+    background-color: #FFD500;
+    color: #333333;
+    padding-left:20px;
+    padding-right:20px;
+    padding-bottom:10px;
+    padding-top:10px;
+    border-radius:3px;
+    font-weight: bold;
+    margin-left: 5px;
 }
