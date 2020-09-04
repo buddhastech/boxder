@@ -11490,7 +11490,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "<button id='new-asset' class='btn btn-primary'>Nuevo usuario <i class='fas fa-plus'></i></button>",
+			"sInfo": "",
 	
 	
 			/**

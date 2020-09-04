@@ -1,9 +1,9 @@
 from datetime import datetime
 from django.db.utils import IntegrityError
 
-from ..models import Users
-from ..models import Departments
-from ..local_modules.department_list import department_list, departaments
+from ...models import Users
+from ...models import Departments
+from ..department_list import department_list, departaments
 
 def registration(data, passw, departments):
 

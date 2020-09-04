@@ -9,13 +9,13 @@ from django.core.cache import cache
 from assets_users.models import Assets
 from assets_users.models import Departments
 # local modules
-from .local_modules.validations import validate_data
-from .local_modules.hashing import hashing_password, compare_password
-from .local_modules.registration_users import registration 
+from .local_modules.users.validations import validate_data
+from .local_modules.users.hashing import hashing_password, compare_password
+from .local_modules.users.registration_users import registration 
 from .local_modules.department_list import department_list
-from .local_modules.login_user import login, get_password, get_data_user, set_sessions_user
+from .local_modules.users.login_user import login, get_password, get_data_user, set_sessions_user
 from .local_modules.database_exceptions import exception_db_response
- 
+from .local_modules.assets.register_asset import registration_asset
 
 # vista para registrar usuario
 def user_register(request):
@@ -35,6 +35,7 @@ def user_register(request):
             if validate_data(post_data):  
                 if registration(post_data, password_hash, department_list()):
                     context['response'] = '1'
+                    context['assets'] = Assets.objects.all()
                     return render(request, 'registration.html', context)
                 else: 
                     context['response'] = '2'
@@ -46,6 +47,7 @@ def user_register(request):
                 context['departments'] = department_list()
                 context['data'] = post_data
                 return render(request, 'registration.html', context)
+
     except DatabaseError as e:
 
                 exception_db_response(
@@ -103,6 +105,34 @@ def registration_form(request):
 
     context = {'departments': department_list()}
     return render(request, 'registration.html', context)
+
+# vista para registrar activos
+def asset_registration(request):
+    context = {}
+    if request.method == "POST":
+        data_asset = {'brand': request.POST['brand'],'model': request.POST['model'],
+                      'cost': request.POST['cost'], 'weight': request.POST['weight'],
+                      'provider': request.POST['provider'], 'util_life': request.POST['util_life']}
+        
+        try:
+            if registration_asset(data_asset):
+                context['response'] = '1'
+                return render(request, 'boxderindex.html', context)
+                
+            else:
+                context['response'] = '2'
+                return render(request, 'boxderindex.html', context)
+
+        except DatabaseError as e:
+            print(e)
+            context['response'] = '4'
+            return render(request, 'boxderindex.html', context)
+
+        except TypeError as e:
+
+            context['response'] = '3'
+            
+            return render(request, 'boxderindex.html', context)
 
 # vista para página principal de la app
 def boxder_index(request):

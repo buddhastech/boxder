@@ -1,4 +1,4 @@
-from ..models import Users
+from ...models import Users
 from django.contrib.sessions.models import Session
 
 def login(identification_card):

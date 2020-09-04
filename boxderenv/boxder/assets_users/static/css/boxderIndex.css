@@ -167,10 +167,15 @@ section #first-section{
     justify-content: center;
     visibility: hidden;
 }
-
+#new-asset{
+    position: absolute;
+    left:300px;
+    z-index: 4;
+}
 #close-popup {
-    margin:540px;
+    margin-left:540px;
     color: lightgray;
+    cursor: pointer;
 }
 
 #close-popup:hover{
