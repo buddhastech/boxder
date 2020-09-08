@@ -1,9 +1,11 @@
 # intern modules
 import re
 # django modules
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.db.utils import DatabaseError, OperationalError, ProgrammingError
 from django.core.cache import cache
+
 
 # models
 from assets_users.models import Assets
@@ -35,7 +37,6 @@ def user_register(request):
             if validate_data(post_data):  
                 if registration(post_data, password_hash, department_list()):
                     context['response'] = '1'
-                    context['assets'] = Assets.objects.all()
                     return render(request, 'registration.html', context)
                 else: 
                     context['response'] = '2'
@@ -116,30 +117,33 @@ def asset_registration(request):
         
         try:
             if registration_asset(data_asset):
-                context['response'] = '1'
-                return render(request, 'boxderindex.html', context)
+                context['response'] = '1' 
+                return JsonResponse(context)
                 
             else:
                 context['response'] = '2'
-                return render(request, 'boxderindex.html', context)
+                return JsonResponse(context)
+                
 
         except DatabaseError as e:
-            print(e)
             context['response'] = '4'
             return render(request, 'boxderindex.html', context)
 
         except TypeError as e:
 
-            context['response'] = '3'
-            
+            context['response'] = '3'            
             return render(request, 'boxderindex.html', context)
 
 # vista para página principal de la app
+
 def boxder_index(request):
 
+    context = {}
     try: 
         if request.session['name'] or request.session['surnames']:
-                return render(request, 'boxderindex.html')
+                context['assets'] = Assets.objects.all()
+                print(context['assets'])
+                return render(request, 'boxderindex.html', context)
     except KeyError as e:
         return redirect('/inicio/')
   

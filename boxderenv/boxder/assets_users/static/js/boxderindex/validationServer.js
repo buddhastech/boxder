@@ -7,9 +7,9 @@ function dataFromServer(data){
             icon: 'success',
             title: 'Registro con éxito',
             showConfirmButton: true
-          }).then(() => {
-            window.location.href = "../boxder";
-          });
+          }).then(()=>{
+            location.href = "../boxder";
+          });   
 
     // Error al validar datos
     }else if( data == '0'){ 
@@ -28,18 +28,10 @@ function dataFromServer(data){
           });
 
     // Error de servidor      
-    }else if(data == '3' || data == '5'){  
+    }else if(data == '3' || data == '4' ||data == '5'){  
     Swal.fire({
         icon: 'error',
         title: 'Error interno',
-        text: 'Ha ocurrido un error de servidoreeeee',
+        text: 'Ha ocurrido un error de servidor',
       });
-}else if(data == '4'){  
-    Swal.fire({
-        icon: 'error',
-        title: 'Error interno',
-        text: 'problemas',
-      });
-}
-
-};
+}};
