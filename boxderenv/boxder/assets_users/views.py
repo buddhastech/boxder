@@ -17,7 +17,7 @@ from .local_modules.users.registration_users import registration
 from .local_modules.department_list import department_list
 from .local_modules.users.login_user import login, get_password, get_data_user, set_sessions_user
 from .local_modules.database_exceptions import exception_db_response
-from .local_modules.assets.register_asset import registration_asset
+from .local_modules.assets.register_asset import registration_asset, validate_dni
 
 # vista para registrar usuario
 def user_register(request):
@@ -85,10 +85,20 @@ def user_login(request):
             
                 if compare_password(post_data['password'], password_user):
                     try:
-                        data_user = get_data_user(object_request)                
-                        set_sessions_user(request, data_user)
-                        return redirect('/boxder/')
-                    
+                        data_user = get_data_user(object_request)
+                        
+                        administrator_auth = bool()
+
+                        for data in object_request:
+                            administrator_auth = data.administrator
+                            break                
+
+                        if not(administrator_auth):
+                            set_sessions_user(request, data_user)
+                            return redirect('/boxder/')
+                        else:
+                            set_sessions_user(request, data_user)
+                            return redirect('/administrator/')    
                     except:
                         context['response'] = '0'
                         return render(request, 'index.html', context)
@@ -115,25 +125,25 @@ def asset_registration(request):
                       'provider': request.POST['provider'], 'util_life': request.POST['util_life'],
                       'name':request.POST['name'], 'user_id':request.POST['user_dni']}
         
-        try:
-            if registration_asset(data_asset):
-                context['response'] = '1' 
-                return JsonResponse(context)
+
+        if validate_dni(data_asset['user_id']):
+            
+            if registration_asset(data_asset) == '1':
+
+                context['response'] = '1'
+            
+            elif registration_asset(data_asset) == '2':
                 
-            else:
                 context['response'] = '2'
-                return JsonResponse(context)
-                
+            
+            elif registration_asset(data_asset) == '3':
 
-        except DatabaseError as e:
+                context['response'] = '3'
+        else:
             context['response'] = '4'
-            return render(request, 'boxderindex.html', context)
-
-        except TypeError as e:
-
-            context['response'] = '3'            
-            return render(request, 'boxderindex.html', context)
-
+                
+        return render(request, 'boxderindex.html', context)
+        
 # vista para página principal de la app
 
 def boxder_index(request):
@@ -142,9 +152,18 @@ def boxder_index(request):
     try: 
         if request.session['name'] or request.session['surnames']:
                 context['assets'] = Assets.objects.filter(user_id_id=request.session['id'])
-                print(context['assets'])
                 return render(request, 'boxderindex.html', context)
 
     except KeyError as e:
         return redirect('/inicio/')
   
+def boxder_admin(request):
+
+    context = {}
+    try: 
+        if request.session['name'] or request.session['surnames']:
+                context['assets'] = Assets.objects.all();
+                return render(request, 'boxderAdmin.html', context)
+
+    except KeyError as e:
+        return redirect('/inicio/')

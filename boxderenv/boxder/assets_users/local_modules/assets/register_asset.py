@@ -1,6 +1,7 @@
 from datetime import datetime
-from ...models import Assets
+from ...models import Assets, Users
 from django.db.utils import IntegrityError
+from django.core.exceptions import ValidationError
 
 def generate_code_asset(data):
 
@@ -31,27 +32,35 @@ def generate_code_asset(data):
     else:
         consecutive = 1
         code = brand_code + "-" + str(consecutive).zfill(4)
-    print(code)
+
     return code
 
 def generate_admision_date():
     
     return print(datetime.date(datetime.now()))
 
+def validate_dni(dni):
+        try:
+            user = Users.objects.get(identification_card=dni)
+            return 1
+        except Exception as e:
+            return 0
+
 def registration_asset(data):
 
     try:
-
         Assets.objects.create(code=generate_code_asset(data),
         brand=data['brand'], name=data['name'], model=data['model'], useful_life=data['util_life'],
         cost=data['cost'], weight=data['weight'], admission_date=generate_admision_date,
         actual_status="Activo", provider=data['provider'], user_id_id=data['user_id'])
-
-        return 1
+    
+        return '1'
 
     except IntegrityError as error:
-        print(error)
-        return False
+        return '2'
+
+    except ValidationError as error:
+        return '3'
 
 
 
