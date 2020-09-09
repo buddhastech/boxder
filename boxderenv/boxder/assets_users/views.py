@@ -55,6 +55,7 @@ def user_register(request):
                 '3', 
                 department_list(), 
                 render(request, 'registration.html', context))
+                
     except OperationalError as e:
 
                 exception_db_response(
@@ -86,14 +87,12 @@ def user_login(request):
                     try:
                         data_user = get_data_user(object_request)                
                         set_sessions_user(request, data_user)
-                
                         return redirect('/boxder/')
                     
                     except:
                         context['response'] = '0'
                         return render(request, 'index.html', context)
                 else:
-                    print("hello")
                     context['response'] = '1'
                     return render(request, 'index.html', context)
 
@@ -113,7 +112,8 @@ def asset_registration(request):
     if request.method == "POST":
         data_asset = {'brand': request.POST['brand'],'model': request.POST['model'],
                       'cost': request.POST['cost'], 'weight': request.POST['weight'],
-                      'provider': request.POST['provider'], 'util_life': request.POST['util_life']}
+                      'provider': request.POST['provider'], 'util_life': request.POST['util_life'],
+                      'name':request.POST['name'], 'user_id':request.POST['user_dni']}
         
         try:
             if registration_asset(data_asset):
@@ -141,9 +141,10 @@ def boxder_index(request):
     context = {}
     try: 
         if request.session['name'] or request.session['surnames']:
-                context['assets'] = Assets.objects.all()
+                context['assets'] = Assets.objects.filter(user_id_id=request.session['id'])
                 print(context['assets'])
                 return render(request, 'boxderindex.html', context)
+
     except KeyError as e:
         return redirect('/inicio/')
   

@@ -201,7 +201,6 @@
   </aside>
   
   <section>
-    
     <article id="first-section">
         <div id="total-assets">
           <div id="icon-target"><i class="fas fa-boxes"></i></div>
@@ -434,43 +433,61 @@
 
   <div id="overlay"> <!--Abarca toda la página-->
       <div id="popup"> <!-- lo que se ocupe -->
-        <i class="fas fa-times" id="close-popup"></i>
-        <h3>Nuevo activo</h3>
+        <div id="head">
+          <div>
+            <h3>Nuevo activo</h3>
+          </div>
+          <div>
+            <i class="fas fa-times" id="close-popup"></i>
+          </div>
+        </div>
+
         <form action="/registerAsset/" method="POST" id="assetForm">
 
           {% csrf_token %}
           <div id="inputs-1">
             <div id="elements">
+              <div><label for="model">Cédula de usuario</label></div>
+              <div><input type="text" id="user_dni" name="user_dni" placeholder="70288...."></div>
+            </div>
+            <div id="elements">
               <div><label for="brand">Marca</label></div>
               <div><input type="text" id="brand" name="brand" placeholder="logitech.."></div>
+            </div>
+
+            <div id="elements">
+              <div><label for="cost">Costo</label></div>
+              <div><input type="text" id="cost" name="cost" placeholder="$300"></div>
+            </div>
+          </div>
+
+          <div id="inputs-2">
+            <div id="elements">
+              <div><label for="weight">Peso</label></div>
+              <div><input type="text" id="weight" name="weight" placeholder="3 kg"></div>
+            </div>
+            <div id="elements">
+              <div><label for="provider">Proveedor</label></div>
+              <div><input type="text" id="provider" name="provider" placeholder="Microsoft..."></div>
             </div>
             <div id="elements">
               <div><label for="model">Modelo</label></div>
               <div><input type="text" id="model" name="model" placeholder="b-15w009la..."></div>
             </div>
           </div>
-
-          <div id="inputs-2">
-            <div id="elements">
-              <div><label for="cost">Costo</label></div>
-              <div><input type="text" id="cost" name="cost" placeholder="$300"></div>
-            </div>
-            <div id="elements">
-              <div><label for="weight">Peso</label></div>
-              <div><input type="text" id="weight" name="weight" placeholder="3 kg"></div>
-            </div>
-          </div>
           <div id="inputs-3">
             <div id="elements">
-              <div><label for="provider">Proveedor</label></div>
-              <div><input type="text" id="provider" name="provider" placeholder="Microsoft..."></div>
-              <div><label for="util_life">Vida útil</label></div>
+              <div><label for="util_life" id="util_life">Vida útil</label></div>
               <div>
                 <select name="util_life" id="util_life">
                   <option value="1">1</option>
-                  <option value="3">3</option>
-                  <option value="6">6</option>
-                  <option value="9">9</option>
+                  <option value="3">2</option>
+                  <option value="6">3</option>
+                  <option value="9">4</option>
+                  <option value="9">5</option>
+                  <option value="9">6</option>
+                  <option value="9">7</option>
+                  <option value="9">8</option>
                 </select>
               <input type="checkbox" name="days" id="days" value="days">
               <label for="days">Días</label>
@@ -480,7 +497,10 @@
               <label for="days">Años</label>
             </div>
             </div>
-
+            <div id="elements">
+              <div><label for="cost">Nombre del equipo</label></div>
+              <div><input type="text" id="name" name="name" placeholder="Computadora"></div>
+            </div>
           </div>
           <div id="buttons">
             <button type="submit" id="send">Registrar</button>
@@ -510,6 +530,9 @@
         dataType: 'json'
 
     }).fail(function(jqXHR, textStatus, errorThrown){
+      console.log(jqXHR);
+      console.log(textStatus);
+      console.log(errorThrown);
       if (jqXHR.status == 500){
         dataFromServer('4');
       }

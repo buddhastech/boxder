@@ -2,10 +2,9 @@ from datetime import datetime
 from ...models import Assets
 from django.db.utils import IntegrityError
 
-def generate_code_asset(data, brand):
+def generate_code_asset(data):
 
     last_code = Assets.objects.all()
-    last_code = last_code[len(last_code)-1]
     brand_letters = data['brand']
     brand_code = ""
     code = ""
@@ -17,11 +16,8 @@ def generate_code_asset(data, brand):
             else:
                 brand_code += brand_letters[number_letter]
     
-    if last_code is None:
-        consecutive = 1
-        code = brand_code + "-" + str(consecutive).zfill(4)
-
-    else:
+    if last_code:
+        last_code = last_code[len(last_code)-1]
         numbers = ""
         for number in range(len(last_code.code)):
             if last_code.code[number].isnumeric():
@@ -32,6 +28,10 @@ def generate_code_asset(data, brand):
 
         code = brand_code + "-" + str(numbers).zfill(4)
 
+    else:
+        consecutive = 1
+        code = brand_code + "-" + str(consecutive).zfill(4)
+    print(code)
     return code
 
 def generate_admision_date():
@@ -41,14 +41,16 @@ def generate_admision_date():
 def registration_asset(data):
 
     try:
-        Assets.objects.create(code=generate_code_asset( data, data['brand']),
-        brand=data['brand'], model=data['model'], useful_life=data['util_life'],
+
+        Assets.objects.create(code=generate_code_asset(data),
+        brand=data['brand'], name=data['name'], model=data['model'], useful_life=data['util_life'],
         cost=data['cost'], weight=data['weight'], admission_date=generate_admision_date,
-        actual_status="A", provider=data['provider'])
+        actual_status="Activo", provider=data['provider'], user_id_id=data['user_id'])
 
         return 1
 
     except IntegrityError as error:
+        print(error)
         return False
 
 

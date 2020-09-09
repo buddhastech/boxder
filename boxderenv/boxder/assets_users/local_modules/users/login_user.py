@@ -27,7 +27,8 @@ def get_data_user(user):
     data_user = {}
     if user:
         for data in user:
-
+            
+            data_user.setdefault('identification_card', data.identification_card)
             data_user.setdefault('name', data.name)
             data_user.setdefault('surnames', data.surnames)
         
@@ -35,6 +36,7 @@ def get_data_user(user):
 
 def set_sessions_user(re, data):
 
+    re.session['id'] = data['identification_card']
     re.session['name'] = data['name']
     re.session['surnames'] = data['surnames']
     
