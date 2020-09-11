@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import registration_form, user_register, user_login, boxder_index, boxder_admin
+from .views import configuration
 from .views import asset_registration
 
 urlpatterns = [
@@ -9,4 +10,5 @@ urlpatterns = [
     path('boxder/', boxder_index, name="boxder"),
     path('administrator/', boxder_admin, name="adminBox"),
     path('registerAsset/', asset_registration, name="registerasset"),
+    path('configuration/', configuration, name="configurationuser"),
 ]

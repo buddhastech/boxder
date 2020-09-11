@@ -145,25 +145,38 @@ def asset_registration(request):
         return render(request, 'boxderindex.html', context)
         
 # vista para página principal de la app
-
 def boxder_index(request):
 
     context = {}
     try: 
         if request.session['name'] or request.session['surnames']:
+                all_assets = Assets.objects.all();
+                context['total_assets'] = all_assets.count()
+                context['active_assets'] = Assets.objects.filter(actual_status="Activo").count()
+                context['suspend_assets'] = Assets.objects.filter(actual_status="Suspendido").count()
+                context['low_assets'] = Assets.objects.filter(actual_status="De baja").count()
                 context['assets'] = Assets.objects.filter(user_id_id=request.session['id'])
                 return render(request, 'boxderindex.html', context)
 
     except KeyError as e:
         return redirect('/inicio/')
   
+# vista para página principal de administrador
 def boxder_admin(request):
+
 
     context = {}
     try: 
         if request.session['name'] or request.session['surnames']:
-                context['assets'] = Assets.objects.all();
+                all_assets = Assets.objects.all();
+                context['assets'] = all_assets
+                context['total_assets'] = all_assets.count()
+                print(context['total_assets'])
                 return render(request, 'boxderAdmin.html', context)
 
     except KeyError as e:
         return redirect('/inicio/')
+
+def configuration(request):
+
+    return render(request, 'configuration_user.html')

@@ -1,0 +1,162 @@
+#regist{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding:20px;
+}
+main{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+form h4{
+
+    padding:20px;
+    color:#168AF7;
+    font-weight: bold;
+}
+
+form div div{
+    display: flex; 
+    flex-direction: column;
+    margin:10px;
+}
+
+form div div label{
+    color: #333333;
+    margin-left:15px;
+}
+
+form div div input{
+    margin-right:15px;
+    margin-left:15px;
+    border-right:none;
+    border-left:none;
+    border-top:none;
+    border-bottom: 2px solid lightgray;
+    padding:5px;
+}
+
+form div div select{
+    margin-right:15px;
+    margin-left:15px;
+    border-right:none;
+    border-left:none;
+    border-top:none;
+    border-bottom: 2px solid lightgray;
+    padding:5px;
+    background-color:white;
+}
+
+form div div #error-text1, #error-text2, 
+#error-text3, #error-text4, #error-text5, 
+#error-text6, #error-text7, #error-text8{
+    margin-right:15px;
+    margin-left:15px;
+    border:1px solid white;
+    padding:0px;
+}
+
+form div{
+    display:flex;
+    flex-direction: row;
+}
+
+form input:hover{
+    border-bottom: 2px solid #168AF7;
+    transition:ease 0.2s;
+}
+
+form div div input:hover{
+    border-bottom: 2px solid #168AF7;
+    transition:ease 0.2s;
+}
+
+form button{
+    background-color:#333333;
+    border:2px solid #333333;
+    color:white;
+    padding:10px;
+    font-weight: bold;
+    margin-bottom:20px;
+    width:100%;
+}
+
+form button:hover{
+
+    border:2px solid #333333;
+    background-color:white;
+    color: #333333;
+    transition: all 0.2s;
+}
+
+#colors{
+    display:flex;
+    flex-direction: column;
+}
+
+#set1, #set2{
+    display:flex;
+    flex-direction: row;
+}
+#button-color{
+    background-color:transparent;
+    border:none;
+}
+#color1{
+    padding:20px;
+    margin:5px;
+    background-color:#C73B2F;
+    border-radius:100%;
+    border:4px solid #6F170F;
+}
+
+#color2{
+    padding:20px;
+    margin:5px;
+    background-color:#3EA71C;
+    border-radius:100%;
+    border:4px solid #21660A;    
+}
+
+#color3{
+    padding:20px;
+    margin:5px;
+    background-color:#1E79BD;
+    border-radius:100%;
+    border:4px solid #0E5E99;   
+}
+
+#color4{
+    padding:20px;
+    margin:5px;
+    background-color: #FFEC4F;
+    border-radius:100%;
+    border:4px solid #CFBA0E;    
+}
+
+#color5{
+    padding:20px;
+    margin:5px;
+    background-color: #E718F1;
+    border-radius:100%;
+    border:4px solid #931A98;    
+}
+
+#color6{
+    padding:20px;
+    margin:5px;
+    background-color:#7B41FF;
+    border-radius:100%;
+    border:4px solid #3D1C87;    
+}

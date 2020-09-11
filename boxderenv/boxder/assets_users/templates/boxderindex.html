@@ -81,7 +81,7 @@
             <i class="fas fa-user-cog"></i>
           </a>
           <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-            <li><a href="#" class="dropdown-item"><i class="fas fa-tools"></i>
+            <li><a href="{% url 'configurationuser' %}" class="dropdown-item"><i class="fas fa-tools"></i>
               &nbsp;&nbsp;&nbsp;Configuración de usuario</a></li>
             <li>
                 <a href="#" class="dropdown-item" id="close-sesion"><i class="fas fa-sign-out-alt"></i>
@@ -206,28 +206,28 @@
           <div id="icon-target"><i class="fas fa-boxes"></i></div>
           <div id="info">
             <div id="text-target">Total Activos</div>
-            <div id="data-target">20</div>
+            <div id="data-target">{{ total_assets }}</div>
           </div>
         </div>
         <div id="functionally-assets">
           <div id="icon-target"><i class="fas fa-check"></i></div>
           <div id="info">
             <div id="text-target">Funcionando</div>
-            <div id="data-target">6</div>
+            <div id="data-target">{{ active_assets }}</div>
           </div>
         </div>
         <div id="low-assets">
           <div id="icon-target"><i class="fas fa-skull-crossbones"></i></div>
           <div id="info">
             <div id="text-target">De baja</div>
-            <div id="data-target">10</div>
+            <div id="data-target">{{ low_assets }}</div>
           </div>
         </div>
         <div id="suspended-assets">
           <div id="icon-target"><i class="fas fa-toolbox"></i></div>
           <div id="info">
             <div id="text-target">Suspendidos</div>
-            <div id="data-target">2</div>
+            <div id="data-target">{{ suspend_assets }}</div>
           </div>
         </div>
     </article>
@@ -249,6 +249,7 @@
           <th  aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Costo</th>
           <th  aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Fecha ingreeso</th>
           <th  aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Estado actual</th>
+          <th  aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Acciones</th>
         </tr>
         </thead>
 
@@ -260,7 +261,16 @@
             <td>{{ asset.model }}</td>
             <td>{{ asset.cost }}</td>
             <td>{{ asset.admission_date }}</td>
-            <td>{{ asset.actual_status }}</td>
+            <td id="status-option">{{ asset.actual_status }}<div>
+
+            </div>
+
+            </td>
+            <td>
+              <button id="update"><i class="fas fa-pencil-alt"></i></button>
+              <button id="delete"><i class="fas fa-times"></i></button>
+              <button id="info-btn"><i class="fas fa-info-circle" id="info-assets"></i></button>
+            </td>
         </tr>
         {% endfor %}
 
