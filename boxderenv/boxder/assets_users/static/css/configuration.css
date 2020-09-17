@@ -4,11 +4,37 @@
     align-items: center;
     padding:20px;
 }
+
 main{
     display:flex;
     justify-content: center;
     align-items: center;
 }
+
+#config{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+}
+
+#panel-colors{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right:80px;
+}
+
+#button-letter{
+    font-weight: bold;
+    padding: 40px 60px 40px 60px;
+    font-size:35px;
+    margin:35px;
+    border-radius: 10px;
+}
+
 form{
 
     background-color: white;
@@ -16,15 +42,9 @@ form{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    margin-top:40px;
 }
 
-form h4{
-
-    padding:20px;
-    color:#168AF7;
-    font-weight: bold;
-}
 
 form div div{
     display: flex; 
@@ -82,6 +102,10 @@ form div div input:hover{
     transition:ease 0.2s;
 }
 
+h4{
+    color: #333333;
+}
+
 form button{
     background-color:#333333;
     border:2px solid #333333;
@@ -112,6 +136,8 @@ form button:hover{
 #button-color{
     background-color:transparent;
     border:none;
+    margin:10px;
+
 }
 #color1{
     padding:20px;
@@ -160,3 +186,4 @@ form button:hover{
     border-radius:100%;
     border:4px solid #3D1C87;    
 }
+

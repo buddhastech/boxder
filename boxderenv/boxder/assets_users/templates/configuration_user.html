@@ -5,6 +5,8 @@
 <link rel="stylesheet" href="{% static 'css/configuration.css' %}">
 <link rel="stylesheet" href="{% static 'css/boxderIndex.css' %}">
 <script src="{% static 'lib/plugins/jquery/jquery.min.js' %}"></script>
+
+
 {% endblock %}
 
 {% block content %}
@@ -60,18 +62,146 @@
       </ul>
     </div>
   </nav>
+
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <div class="sidebar">
+      <!-- Sidebar user (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex" id="user">
+        <div class="image">
+            <div>
+                <div id="letterName">
+                    <p>
+                      {{ request.session.name.0 }}
+                    </p>
+                </div>    
+            </div>
+        </div>
+        <div class="info">
+            <p>{{ request.session.name }}</p>
+            <p>{{ request.session.surnames }}</p>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+                <a href="{% url 'boxder' %}" class="nav-link">
+                  <i class="fas fa-people-carry"></i>
+                  <p>
+                    &nbsp;Activos
+                  </p>
+                </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-user-friends"></i>
+              <p>
+                &nbsp;Usuarios
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="fas fa-clipboard-check"></i>
+              <p>
+                &nbsp;Auditoría
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-address-book"></i>
+                  <p>&nbsp;Registro de usuarios</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-pencil-alt"></i>
+                  <p>&nbsp;Modificaciones de usuario</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-edit"></i>
+                  <p>&nbsp;Modificaciones de activos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-door-open"></i>
+                  <p>&nbsp;Ingresos y salidas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-archive"></i>
+                  <p>&nbsp;Usuarios y activos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-times"></i>
+                  <p>&nbsp;Ingresos no autorizados</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-users-slash"></i>
+                  <p>Usuarios suspendidos</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="far fa-building"></i>
+              <p>
+                &nbsp;Departamentos
+              </p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
     <main class="container">
-         <div>
+         <div id="config">
+
+          <div id="panel-colors">
+            <div>
+              <div id="button-letter">{{ request.session.name.0  }}</div>
+          </div>
+            <div id="colors">
+                <div id="set1">
+                    <button id="button-color" type="button"><div id="color1"></div></button>
+                    <button id="button-color" type="button"><div id="color2"></div></button>
+                    <button id="button-color" type="button"><div id="color3"></div></button>
+                </div>
+                <div id="set2">
+                    <button id="button-color" type="button"><div id="color4"></div></button>
+                    <button id="button-color" type="button"><div id="color5"></div></button>
+                    <button id="button-color" type="button"><div id="color6"></div></button>
+                </div>
+            </div>
+           </div>
              <div>
-                 <div>{{ request.session.name.0  }}</div>
-             </div>
-             <div>
-                 <form action="" method="POST">
+               
+                 <form action="/update_config/" method="POST">
+                  {% csrf_token %}
+                  {% for data in users %}
                      <div>
+                       
                         <div>
                             <label for="identification_card">Cedula</label>
                             <input type="text" name="identification_card" id="identification_card"
-                            placeholder="Escribe aquí..." autocomplete="off" value='{{ data.id_card }}'>
+                            placeholder="Escribe aquí..." autocomplete="off" value='{{ data.identification_card }}'>
                             <input type="text" id="error-text1" disabled>    
                         </div>
         
@@ -129,29 +259,22 @@
                             autocomplete="off" value="{{ data.email }}">    
                             <input type="text" id="error-text7" disabled> 
                         </div>
-                        <div>
-                            <label for="pass">Contraseña</label>
-                            <input type="password" name="password" id="pass" placeholder="Escribe aquí...">
-                            <input type="text" id="error-text8" disabled> 
-                        </div>
+
                     </div>
-                    <h4>Seleccione un color para su botón de perfil</h4>
-                    <div id="colors">
-                        <div id="set1">
-                            <button id="button-color" type="button"><div id="color1"></div></button>
-                            <button id="button-color" type="button"><div id="color2"></div></button>
-                            <button id="button-color" type="button"><div id="color3"></div></button>
-                        </div>
-                        <div id="set2">
-                            <button id="button-color" type="button"><div id="color4"></div></button>
-                            <button id="button-color" type="button"><div id="color5"></div></button>
-                            <button id="button-color" type="button"><div id="color6"></div></button>
-                        </div>
-                    </div>
+                  {% endfor %}
                     <button type="submit">Aceptar</button>
                  </form>
              </div>
-             <div></div>
          </div>
     </main>
-{% endblock %}
+    <script type="text/javascript" src="{% static 'js/boxderConfig/validationServer.js' %}"></script>
+
+    {% if response %}
+      <script type="text/javascript">
+        dataFromServer('{{ response }}');
+      </script>
+    {% endif %}
+
+    <script type="text/javascript" src="{% static 'js/boxderindex/colorPicker.js' %}"></script>
+
+    {% endblock %}

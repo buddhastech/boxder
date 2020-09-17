@@ -10,6 +10,8 @@ from django.core.cache import cache
 # models
 from assets_users.models import Assets
 from assets_users.models import Departments
+from assets_users.models import Users
+
 # local modules
 from .local_modules.users.validations import validate_data
 from .local_modules.users.hashing import hashing_password, compare_password
@@ -18,6 +20,7 @@ from .local_modules.department_list import department_list
 from .local_modules.users.login_user import login, get_password, get_data_user, set_sessions_user
 from .local_modules.database_exceptions import exception_db_response
 from .local_modules.assets.register_asset import registration_asset, validate_dni
+from .local_modules.users.update_user import update_user
 
 # vista para registrar usuario
 def user_register(request):
@@ -178,5 +181,38 @@ def boxder_admin(request):
         return redirect('/inicio/')
 
 def configuration(request):
+    context = {}
+    context['departments'] = department_list()
+    context['users'] = Users.objects.filter(identification_card=request.session['id'])
+    return render(request, 'configuration_user.html', context)
 
-    return render(request, 'configuration_user.html')
+def configuration_update(request):
+
+    context = {}
+    if request.method == 'POST':
+        
+        data = {"id": request.POST['identification_card'],
+                "name": request.POST['name'],
+                "surnames": request.POST['surnames'],
+                "phone": request.POST['phone'],
+                "department": request.POST['department'],
+                "age": request.POST['age'],
+                "email": request.POST['email']}
+
+        if update_user(data) == '1':
+            context['response'] = '1'
+
+        elif update_user(data) == '2':
+            context['response'] = '2'
+
+        elif update_user(data) == '3':
+            context['response'] = '3'
+        
+        context['users'] = Users.objects.filter(identification_card=request.session['id'])
+        context['departments'] = department_list()
+        return render(request, 'configuration_user.html', context)
+
+
+            
+
+        

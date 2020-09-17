@@ -13,6 +13,7 @@ section #first-section{
 #status-option{
     display:flex;
 }
+
 #status_select{
     background-color:transparent;
     border-bottom:none;
@@ -32,6 +33,7 @@ section #first-section{
     background-color:transparent;
     border:none;
 }
+
 #info-assets{
     font-size:20px;
     margin-left:15px;
@@ -47,6 +49,7 @@ section #first-section{
     border-radius:5px;
     
 }
+
 #icon-target{
     color:white;
     line-height:50px;
@@ -56,23 +59,55 @@ section #first-section{
     border-bottom-left-radius: 5px;
     box-shadow: 0px 5px 10px lightgray;
 }
+
 #data-target{
     font-weight: bold;
     font-size:25px;
 }
+
 #total-assets #icon-target{
     background-color: #1286EE;
 }
+
 #functionally-assets #icon-target{
     background-color: #397F32;
 }
+
 #low-assets #icon-target{
     background-color: #AC2624;
 }
+
 #suspended-assets #icon-target{
     background-color: #FFD500;
     color: #333333;
 }
+
+#letterName{
+    font-weight: bold;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius:100%;
+    margin-top:5px;
+    margin-right:5px
+}
+#letterName p{
+    line-height: 48px;
+    font-size:20px;
+    padding-left:5px;
+    padding-bottom:3px;
+}
+
+
+.info{
+    margin-top:10px;
+    color:white;
+    font-weight: bold;
+}
+.info p{
+    margin: -5px;
+}
+
 #info{
     margin-top:5px;
     margin-right:40px;
@@ -185,6 +220,7 @@ section #first-section{
     margin-top:80px;
     margin-bottom:40px;
 }
+
 #data-assets #card .row{
     border-bottom: 1px solid lightgray;
     padding:20px;

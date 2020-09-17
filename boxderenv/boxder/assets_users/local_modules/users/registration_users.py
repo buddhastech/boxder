@@ -1,5 +1,5 @@
 from datetime import datetime
-from django.db.utils import IntegrityError
+from django.db.utils import IntegrityError, DatabaseError, DataError
 
 from ...models import Users
 from ...models import Departments
@@ -18,4 +18,10 @@ def registration(data, passw, departments):
 
     except IntegrityError as e:
 
+        return False
+
+    except DatabaseError as e:
+        return False
+
+    except DataError as e:
         return False

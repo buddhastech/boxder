@@ -1,9 +1,11 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block title %}
-  BOXDER
-{% endblock %}
-{% block head %}
+  {% extends 'base.html' %}
+  {% load static %}
+
+  {% block title %}
+    BOXDER
+  {% endblock %}
+
+  {% block head %}
   <!-- web dependencies -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
@@ -98,16 +100,19 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <div class="sidebar">
       <!-- Sidebar user (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex" id="user">
         <div class="image">
             <div>
-                <div class="rounded-circle pr-3 pl-3 p-2" id="letterName">
-                    {{ request.session.name.0 }}
+                <div id="letterName">
+                    <p>
+                      {{ request.session.name.0 }}
+                    </p>
                 </div>    
             </div>
         </div>
         <div class="info">
-            <a href="#" class="d-block">{{ request.session.name }} {{ request.session.surnames }}</a>
+            <p>{{ request.session.name }}</p>
+            <p>{{ request.session.surnames }}</p>
         </div>
       </div>
 
@@ -273,7 +278,6 @@
             </td>
         </tr>
         {% endfor %}
-
 
         <button id='new-asset' class='btn btn-primary'>Nuevo Activo <i class='fas fa-plus'></i></button>
       </tbody>
@@ -520,25 +524,22 @@
       </div>
   </div>
 
-<script type="text/javascript">
-  $('#example1').DataTable({
+  <script type="text/javascript" src="{% static 'js/boxderindex/validationServer.js' %}"></script>
+  <script type="text/javascript">
+    $('#example1').DataTable({
                     responsive: true,
                     autoWidth: false
                 });
-</script>
+  </script>
 
-<script type="text/javascript" src="{% static 'js/boxderindex/validationServer.js' %}"></script>
+  {% if response %}
+      <script type="text/javascript">
+          dataFromServer('{{ response }}');
+      </script>
+  {% endif %}
 
-
-{% if response %}
-    <script type="text/javascript">
-        dataFromServer('{{ response }}');
-    </script>
-{% endif %}
-
-<script type="text/javascript" src="{% static 'js/boxderindex/boxder.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/boxderindex/charts.js' %}"></script>
-
-
+  <script type="text/javascript" src="{% static 'js/boxderindex/boxder.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/boxderindex/charts.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/boxderindex/colorPickerInit.js' %}"></script>
 
   {% endblock %}
