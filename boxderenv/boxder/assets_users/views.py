@@ -1,7 +1,11 @@
 # intern modules
 import re
+
+#external modules
+from openpyxl import Workbook, load_workbook
+
 # django modules
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
 from django.db.utils import DatabaseError, OperationalError, ProgrammingError
 from django.core.cache import cache
@@ -212,7 +216,38 @@ def configuration_update(request):
         context['departments'] = department_list()
         return render(request, 'configuration_user.html', context)
 
+def export_excel(request):
 
+    wb = Workbook()
+    sheet = wb.active
+    
+    activos = Assets.objects.all()
+
+    datos = [("Code", "Brand", "Model", "Useful_life", "Cost", "Weight", 
+            "admission_date", "actual_status", "provider", "user_id", "name")]
+            
+    for data in activos:
+        assets_data = (data.code, data.brand, data.model,
+                            data.useful_life, data.cost, data.weight,
+                            data.admission_date, data.actual_status,
+                            data.provider, data.user_id_id, data.name)
+        
+        datos.append(assets_data)
+
+    
+    for row in datos:
+        sheet.append(row)
+
+    response = HttpResponse(content_type='application/ms-excel')
+    # response = tipo de respuesta que será un archivo de microsoft excel
+    response['Content-Disposition'] = 'attachment; filename="reporteActivos.xlsx"'
+    # añade el nombre del archivo 
+
+    wb.save(response)
+
+    return response # retorna la respuesta (el archivo excel)
+    
+    return HttpResponse("1")
             
 
         
