@@ -3,6 +3,7 @@ import re
 
 #external modules
 from openpyxl import Workbook, load_workbook
+from openpyxl.styles import PatternFill
 
 # django modules
 from django.http import JsonResponse, HttpResponse
@@ -233,8 +234,11 @@ def export_excel(request):
                             data.provider, data.user_id_id, data.name)
         
         datos.append(assets_data)
-
     
+    sheet.merge_cells("A1:K1")
+    sheet['A1'].fill = PatternFill(start_color="1173C9", end_color="1173C9", fill_type="solid")
+    sheet["A1"] = "Activos"
+
     for row in datos:
         sheet.append(row)
 
