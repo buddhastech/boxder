@@ -3,7 +3,7 @@ import re
 
 #external modules
 from openpyxl import Workbook, load_workbook
-from openpyxl.styles import PatternFill
+
 
 # django modules
 from django.http import JsonResponse, HttpResponse
@@ -18,14 +18,24 @@ from assets_users.models import Departments
 from assets_users.models import Users
 
 # local modules
+
+# users modules
 from .local_modules.users.validations import validate_data
 from .local_modules.users.hashing import hashing_password, compare_password
-from .local_modules.users.registration_users import registration 
-from .local_modules.department_list import department_list
-from .local_modules.users.login_user import login, get_password, get_data_user, set_sessions_user
-from .local_modules.database_exceptions import exception_db_response
-from .local_modules.assets.register_asset import registration_asset, validate_dni
 from .local_modules.users.update_user import update_user
+from .local_modules.users.registration_users import registration 
+from .local_modules.users.login_user import login, get_password, get_data_user, set_sessions_user
+
+# department modules
+from .local_modules.department_list import department_list
+
+# database_excpetions modules
+from .local_modules.database_exceptions import exception_db_response
+
+# assets modules
+from .local_modules.assets.register_asset import registration_asset, validate_dni
+from .local_modules.assets.styling_excel import styling_assets_excel
+
 
 # vista para registrar usuario
 def user_register(request):
@@ -236,12 +246,9 @@ def export_excel(request):
         datos.append(assets_data)
     
     sheet.merge_cells("A1:K1")
-    sheet['A1'].fill = PatternFill(start_color="1173C9", end_color="1173C9", fill_type="solid")
-    sheet["A1"] = "Activos"
-
-    for row in datos:
-        sheet.append(row)
-
+    
+    styling_assets_excel(sheet, datos)
+        
     response = HttpResponse(content_type='application/ms-excel')
     # response = tipo de respuesta que será un archivo de microsoft excel
     response['Content-Disposition'] = 'attachment; filename="reporteActivos.xlsx"'
